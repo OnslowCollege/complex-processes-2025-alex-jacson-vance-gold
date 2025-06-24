@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=14 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -20,6 +20,15 @@ background_mode = 2
 sky = SubResource("Sky_jyhfs")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
+albedo_color = Color(0.484398, 0.484398, 0.484398, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o6xl0"]
+material = SubResource("StandardMaterial3D_o6xl0")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6xl0"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tefeu")
@@ -52,3 +61,15 @@ scene_properties_keys = PackedStringArray("virtual_keyboard_2d.gd")
 
 [node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.115848)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(5.145, 0, 0, 0, 5.145, 0, 0, 0, 5.145, 0.00674152, 2.38419e-07, -0.309421)
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_o6xl0")
+skeleton = NodePath("../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_o6xl0")
