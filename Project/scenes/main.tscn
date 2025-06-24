@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=11 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://r1vcgpitiqqh" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bej12a3ythw4x" path="res://scenes/mac.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://scenes/floppy_disk.tscn" id="7_o6xl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sugp2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,8 +44,11 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, -0.360702)
 
 [node name="Mac" parent="Table" instance=ExtResource("4_tbgi4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.506386, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.757147, 0)
 
 [node name="VirtualKeyboard" parent="." instance=ExtResource("5_tbgi4")]
 transform = Transform3D(0.375, 0, 0, 0, 0.265165, 0.265165, 0, -0.265165, 0.265165, 0, 1.10359, 0.282283)
 scene_properties_keys = PackedStringArray("virtual_keyboard_2d.gd")
+
+[node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.115848)

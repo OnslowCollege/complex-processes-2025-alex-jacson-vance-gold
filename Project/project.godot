@@ -29,6 +29,11 @@ window/size/viewport_height=342
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[global_group]
+
+Computer=""
+Floppy=""
+
 [layer_names]
 
 3d_physics/layer_1="Static World"
