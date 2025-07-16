@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvegknk5lsye3"]
+
+[ext_resource type="Texture2D" uid="uid://6bv7mikpj2lc" path="res://assets/textures/wallpaper.png" id="1_jqvav"]
+[ext_resource type="Texture2D" uid="uid://bntkd04klqlou" path="res://assets/textures/border.png" id="2_rxoc4"]
+[ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
+[ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
+[ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="5_72ne2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxvci"]
+texture = ExtResource("2_rxoc4")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+
+[node name="OS" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jqvav")
+
+[node name="TopPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fxvci")
+
+[node name="PixelCurve" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fxvci")
+
+[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
+layout_mode = 1
+offset_left = 129.0
+offset_top = 80.0
+offset_right = -236.0
+offset_bottom = -133.0
+
+[node name="Top-bar-example-layout" type="Sprite2D" parent="."]
+position = Vector2(110.5, 9.5)
+texture = ExtResource("5_72ne2")

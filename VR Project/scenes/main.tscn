@@ -66,10 +66,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.115848)
 transform = Transform3D(5.145, 0, 0, 0, 5.145, 0, 0, 0, 5.145, 0.00674152, 2.38419e-07, -0.309421)
 
 [node name="Mesh" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_o6xl0")
 skeleton = NodePath("../../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_o6xl0")
