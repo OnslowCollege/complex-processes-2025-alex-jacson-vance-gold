@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bn2y15cuc352i"]
+
+[ext_resource type="FontFile" uid="uid://betb5ntkxttgh" path="res://assets/fonts/Chicago.ttf" id="1_h28u3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h28u3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsdq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pos1"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h28u3"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_h28u3")
+Button/styles/focus = SubResource("StyleBoxEmpty_h28u3")
+Button/styles/hover = SubResource("StyleBoxEmpty_hsdq3")
+Button/styles/normal = SubResource("StyleBoxFlat_7pos1")
+Button/styles/pressed = SubResource("StyleBoxFlat_h28u3")
