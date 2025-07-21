@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bi7qlvlaw55hp"]
 
-[ext_resource type="PackedScene" uid="uid://dmmoxum0mncyh" path="res://assets/models/table.blend" id="1_02ppr"]
+[ext_resource type="PackedScene" uid="uid://cqt1vnmm4ob8r" path="res://assets/models/table.blend" id="1_02ppr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu86w"]
-size = Vector3(1.365, 1, 1.99)
+size = Vector3(0.857178, 1, 1.67285)
 
 [sub_resource type="BoxMesh" id="BoxMesh_02ppr"]
 
@@ -18,4 +18,4 @@ mesh = SubResource("BoxMesh_02ppr")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="table" parent="." instance=ExtResource("1_02ppr")]
-transform = Transform3D(0.335, 0, 0, 0, 0.335, 0, 0, 0, 0.335, 0, -0.49361, 0)
+transform = Transform3D(0.167, 0, 0, 0, 0.167, 0, 0, 0, 0.167, 0, 0.471958, 0)
