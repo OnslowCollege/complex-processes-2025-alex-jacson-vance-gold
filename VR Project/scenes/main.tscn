@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=17 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bi7qlvlaw55hp" path="res://scenes/table.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://r1vcgpitiqqh" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bej12a3ythw4x" path="res://scenes/mac.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://scenes/floppy_disk.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://j8udvpivjjxi" path="res://assets/models/Cubicle.blend" id="8_tipki"]
+[ext_resource type="MeshLibrary" uid="uid://dbsdufn4gyeu6" path="res://assets/gridmaps/cubicals.tres" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cu0gtq3ey0kkw" path="res://assets/models/Roof.blend" id="10_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sugp2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -27,9 +28,15 @@ albedo_color = Color(0.484398, 0.484398, 0.484398, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o6xl0"]
 material = SubResource("StandardMaterial3D_o6xl0")
+size = Vector2(5, 12)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6xl0"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_85g3d"]
+size = Vector3(5, 0, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_choun"]
+lightmap_size_hint = Vector2i(123, 156)
+flip_faces = true
+size = Vector3(10, 4, 16)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tefeu")
@@ -39,7 +46,7 @@ script = ExtResource("1_o5qli")
 metadata/_custom_type_script = "uid://ucg2ag04asap"
 
 [node name="Player" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.438059)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -51,27 +58,37 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Table" parent="." instance=ExtResource("3_jyhfs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, -0.360702)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, -0.525164)
 
 [node name="Mac" parent="Table" instance=ExtResource("4_tbgi4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.757147, 0)
-
-[node name="VirtualKeyboard" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(0.375, 0, 0, 0, 0.265165, 0.265165, 0, -0.265165, 0.265165, 0, 1.10359, 0.282283)
-scene_properties_keys = PackedStringArray("virtual_keyboard_2d.gd")
 
 [node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.115848)
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(5.145, 0, 0, 0, 5.145, 0, 0, 0, 5.145, 0.00674152, 2.38419e-07, -0.309421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00061, 2.38419e-07, -0.0655703)
 
 [node name="Mesh" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_o6xl0")
 skeleton = NodePath("../../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("ConcavePolygonShape3D_o6xl0")
+shape = SubResource("BoxShape3D_85g3d")
 
 [node name="Cubicle" parent="." instance=ExtResource("8_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906938, 0.15549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh_library = ExtResource("9_85g3d")
+data = {
+"cells": PackedInt32Array(65535, 65534, 786432, 65535, 65533, 786432, 65535, 0, 786432, 65535, 1, 786432, 65534, 65534, 917504, 65534, 65533, 917504, 65534, 65535, 917504, 65534, 0, 917504, 65534, 1, 917504)
+}
+
+[node name="Roof" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.5, 3, 7.45)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.98868, 0)
+mesh = SubResource("BoxMesh_choun")
