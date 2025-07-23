@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=15 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bej12a3ythw4x" path="res://scenes/mac.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://scenes/floppy_disk.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://j8udvpivjjxi" path="res://assets/models/Cubicle.blend" id="8_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sugp2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -71,3 +72,6 @@ skeleton = NodePath("../../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("ConcavePolygonShape3D_o6xl0")
+
+[node name="Cubicle" parent="." instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906938, 0.15549)
