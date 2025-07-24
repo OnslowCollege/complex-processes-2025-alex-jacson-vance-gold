@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvegknk5lsye3"]
+
+[ext_resource type="Texture2D" uid="uid://bntkd04klqlou" path="res://assets/textures/border.png" id="2_rxoc4"]
+[ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
+[ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="3_nd5ct"]
+[ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
+[ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
+[ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="5_72ne2"]
+[ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxvci"]
+texture = ExtResource("2_rxoc4")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvlvj"]
+atlas = ExtResource("4_nvlvj")
+region = Rect2(32, 12, 31, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pos1"]
+atlas = ExtResource("4_nvlvj")
+region = Rect2(0, 12, 31, 18)
+
+[node name="OS" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_7pos1")
+stretch_mode = 1
+
+[node name="TopPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fxvci")
+
+[node name="Logo" type="TextureButton" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -9.0
+offset_right = 39.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+texture_normal = SubResource("AtlasTexture_nvlvj")
+texture_pressed = SubResource("AtlasTexture_7pos1")
+stretch_mode = 3
+
+[node name="File" type="Button" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -9.0
+offset_right = 72.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+text = "File"
+
+[node name="Edit" type="Button" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -9.0
+offset_right = 110.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+text = "Edit"
+
+[node name="View" type="Button" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = -9.0
+offset_right = 152.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+text = "View"
+
+[node name="Special" type="Button" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -9.0
+offset_right = 207.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+text = "Special"
+
+[node name="PixelCurve" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fxvci")
+
+[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
+layout_mode = 1
+offset_left = 129.0
+offset_top = 80.0
+offset_right = -236.0
+offset_bottom = -133.0
+
+[node name="Top-bar-example-layout" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(110.5, 9.5)
+texture = ExtResource("5_72ne2")
