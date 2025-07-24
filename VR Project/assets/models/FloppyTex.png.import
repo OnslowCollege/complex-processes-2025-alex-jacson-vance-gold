@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cglhay7u73g0b"
 path.s3tc="res://.godot/imported/FloppyTex.png-0874548a817de1d0f3b9564cf3261fbe.s3tc.ctex"
+path.etc2="res://.godot/imported/FloppyTex.png-0874548a817de1d0f3b9564cf3261fbe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/models/FloppyTex.png"
-dest_files=["res://.godot/imported/FloppyTex.png-0874548a817de1d0f3b9564cf3261fbe.s3tc.ctex"]
+dest_files=["res://.godot/imported/FloppyTex.png-0874548a817de1d0f3b9564cf3261fbe.s3tc.ctex", "res://.godot/imported/FloppyTex.png-0874548a817de1d0f3b9564cf3261fbe.etc2.ctex"]
 
 [params]
 

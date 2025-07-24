@@ -1,0 +1,93 @@
+[gd_scene load_steps=17 format=3 uid="uid://4wbby5vfnlxu"]
+
+[ext_resource type="Script" uid="uid://clbcroc1k22i0" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://mac-project/scripts/main.gd" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bi7qlvlaw55hp" path="res://mac-project/scenes/table.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://r1vcgpitiqqh" path="res://mac-project/scenes/player.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bej12a3ythw4x" path="res://mac-project/scenes/mac.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://mac-project/scenes/floppy_disk.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://j8udvpivjjxi" path="res://mac-project/assets/models/Cubicle.blend" id="8_8iyn0"]
+[ext_resource type="MeshLibrary" uid="uid://dbsdufn4gyeu6" path="res://mac-project/assets/gridmaps/cubicals.tres" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cu0gtq3ey0kkw" path="res://mac-project/assets/models/Roof.blend" id="9_bbfre"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sugp2"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_jyhfs"]
+sky_material = SubResource("ProceduralSkyMaterial_sugp2")
+
+[sub_resource type="Environment" id="Environment_tbgi4"]
+background_mode = 2
+sky = SubResource("Sky_jyhfs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
+albedo_color = Color(0.484398, 0.484398, 0.484398, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o6xl0"]
+material = SubResource("StandardMaterial3D_o6xl0")
+size = Vector2(10.3, 16.42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_85g3d"]
+size = Vector3(10.3, 0, 16.42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_choun"]
+lightmap_size_hint = Vector2i(123, 156)
+flip_faces = true
+size = Vector3(10, 4, 16)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_tefeu")
+
+[node name="XRToolsStartXR" type="Node" parent="."]
+script = ExtResource("1_o5qli")
+
+[node name="Player" parent="." instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.438059)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_tbgi4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Table" parent="." instance=ExtResource("3_jyhfs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, -0.525164)
+
+[node name="Mac" parent="Table" instance=ExtResource("4_tbgi4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.757147, 0)
+
+[node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.115848)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00061, 2.38419e-07, -0.0655703)
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_o6xl0")
+skeleton = NodePath("../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_85g3d")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh_library = ExtResource("9_85g3d")
+data = {
+"cells": PackedInt32Array(65535, 65534, 786432, 65535, 65533, 786432, 65535, 0, 786432, 65535, 1, 786432, 65534, 65534, 917504, 65534, 65533, 917504, 65534, 65535, 917504, 65534, 0, 917504, 65534, 1, 917504)
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.98868, 0)
+mesh = SubResource("BoxMesh_choun")
+
+[node name="Cubicle" parent="." instance=ExtResource("8_8iyn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Roof" parent="." instance=ExtResource("9_bbfre")]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, -5.76154, 3.85786, 7.8575)
