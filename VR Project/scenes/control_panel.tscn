@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv2jkukdgalxk"]
+
+[ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="1_vd23e"]
+[ext_resource type="Texture2D" uid="uid://bki1jcs10tsuu" path="res://assets/textures/control-panel-ui.png" id="2_o3t6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vd23e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vd23e"]
+width = 2
+height = 2
+
+[node name="Control Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 315.0
+offset_bottom = 179.0
+
+[node name="WindowTemplate" parent="." instance=ExtResource("1_vd23e")]
+layout_mode = 1
+offset_bottom = -2.0
+
+[node name="Title" parent="WindowTemplate/Titlebar" index="1"]
+text = "Control Panel"
+
+[node name="Control-panel-ui" type="Sprite2D" parent="WindowTemplate/Border" index="0"]
+position = Vector2(157.5, 80)
+texture = ExtResource("2_o3t6x")
+
+[node name="Background-Editor" type="Panel" parent="WindowTemplate/Border/Control-panel-ui"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -57.0
+offset_right = -167.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vd23e")
+
+[node name="Button" type="TextureButton" parent="WindowTemplate/Border/Control-panel-ui/Background-Editor"]
+layout_mode = 1
+offset_right = 4.0
+offset_bottom = 4.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("NoiseTexture2D_vd23e")
+stretch_mode = 0
+
+[editable path="WindowTemplate"]

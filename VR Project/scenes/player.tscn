@@ -35,6 +35,6 @@ tracker = &"right_hand"
 [node name="FunctionPointer" parent="XRController3D_right" instance=ExtResource("4_dqkch")]
 
 [node name="MovementTurn" parent="XRController3D_right" instance=ExtResource("6_ur7pv")]
-turn_mode = 2
+turn_mode = 1
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_smehm")]
