@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvlqwc7yp4g1j"]
+
+[ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="1_vvmyl"]
+[ext_resource type="Script" uid="uid://b0kctoish5rnf" path="res://scripts/wallpaper_button.gd" id="2_13x12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mori3"]
+atlas = ExtResource("1_vvmyl")
+region = Rect2(33, 14, 2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqc2v"]
+atlas = ExtResource("1_vvmyl")
+region = Rect2(28, 14, 2, 2)
+
+[node name="Button" type="TextureButton"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_mori3")
+texture_pressed = SubResource("AtlasTexture_xqc2v")
+stretch_mode = 1
+script = ExtResource("2_13x12")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
