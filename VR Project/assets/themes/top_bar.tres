@@ -27,3 +27,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_h28u3")
 Button/styles/hover = SubResource("StyleBoxEmpty_hsdq3")
 Button/styles/normal = SubResource("StyleBoxFlat_7pos1")
 Button/styles/pressed = SubResource("StyleBoxFlat_h28u3")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("1_h28u3")
