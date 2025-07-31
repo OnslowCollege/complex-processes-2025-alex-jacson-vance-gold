@@ -24,6 +24,7 @@ offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
+button_pressed = true
 texture_normal = SubResource("AtlasTexture_mori3")
 texture_pressed = SubResource("AtlasTexture_xqc2v")
 stretch_mode = 1

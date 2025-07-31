@@ -12,3 +12,4 @@ func _ready() -> void:
 			var new_button = wallpaper_button.instantiate()
 			background_editor.add_child(new_button)
 			new_button.position = Vector2 (horiz * 5, vert * 5)
+			new_button.coods(horiz, vert)
