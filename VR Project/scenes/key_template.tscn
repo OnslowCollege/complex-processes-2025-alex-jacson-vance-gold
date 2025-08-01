@@ -14,6 +14,7 @@ cap_bottom = false
 viewport_path = NodePath("2D Letter")
 
 [node name="KeyTemplate" type="Area3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("1_4jmj4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
