@@ -45,6 +45,8 @@ data = {
 image = SubResource("Image_rg3jf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg3jf"]
+heightmap_scale = 16.0
+heightmap_flip_texture = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p38ys"]
 _surfaces = [{
