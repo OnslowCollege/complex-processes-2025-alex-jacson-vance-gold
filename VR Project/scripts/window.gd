@@ -9,6 +9,7 @@ var closed = false
 @onready var title_bar: Panel = $Titlebar
 @onready var close: TextureButton = $Titlebar/CloseButton
 
+
 # TitleBar dragging code.
 func _ready():
 	title_bar.mouse_filter = Control.MOUSE_FILTER_PASS

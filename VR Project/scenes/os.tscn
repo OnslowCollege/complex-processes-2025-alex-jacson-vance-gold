@@ -135,13 +135,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_fxvci")
 
-[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
-layout_mode = 1
-offset_left = 11.0
-offset_top = 58.0
-offset_right = -354.0
-offset_bottom = -155.0
-
 [node name="Top-bar-example-layout" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(110.5, 9.5)
@@ -152,3 +145,10 @@ offset_left = 183.0
 offset_top = 86.0
 offset_right = 498.0
 offset_bottom = 265.0
+
+[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 125.0
+offset_right = -352.0
+offset_bottom = -59.0
