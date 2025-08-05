@@ -28,7 +28,7 @@ expand_margin_right = 3.0
 
 [sub_resource type="FontVariation" id="FontVariation_xqc2v"]
 base_font = ExtResource("5_o8p77")
-spacing_space = 1
+spacing_space = -1
 
 [node name="Control Panel" type="Control"]
 layout_mode = 3
@@ -74,13 +74,25 @@ theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_5q0ia")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_5q0ia")
 
 [node name="Date" type="RichTextLabel" parent="WindowTemplate/Border/ControlPanelUI"]
-offset_left = -105.5
-offset_top = -73.5
-offset_right = 42.5
-offset_bottom = -41.5
+offset_left = -105.0
+offset_top = -73.0
+offset_right = -29.0
+offset_bottom = -41.0
 theme = ExtResource("4_5q0ia")
 theme_override_fonts/normal_font = SubResource("FontVariation_xqc2v")
 text = "  1 / 17/ 00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="RichTextLabel" parent="WindowTemplate/Border/ControlPanelUI"]
+offset_left = -33.5
+offset_top = -73.0
+offset_right = 42.5
+offset_bottom = -41.0
+theme = ExtResource("4_5q0ia")
+theme_override_fonts/normal_font = SubResource("FontVariation_xqc2v")
+text = "  1 / 17/ 00"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [editable path="WindowTemplate"]

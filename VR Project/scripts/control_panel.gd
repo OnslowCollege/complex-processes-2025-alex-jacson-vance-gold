@@ -1,6 +1,8 @@
 extends Control
 
 @onready var background_editor: Panel = $WindowTemplate/Border/ControlPanelUI/BackgroundEditor
+@onready var date: RichTextLabel = $WindowTemplate/Border/ControlPanelUI/Date
+@onready var time: RichTextLabel = $WindowTemplate/Border/ControlPanelUI/Time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,3 +15,9 @@ func _ready() -> void:
 			background_editor.add_child(new_button)
 			new_button.position = Vector2 (horiz * 5, vert * 5)
 			new_button.coods(horiz, vert)
+
+func _process(_delta: float) -> void:
+	var current_date_dict = Time.get_datetime_dict_from_system()
+	var year = int(str(current_date_dict.year).substr(2))
+	date.text = str(current_date_dict.day) + " / " + str(current_date_dict.month) + " / " + str(year)
+	time.text = str(current_date_dict.hour) + " : " + str(current_date_dict.minute) + " : " + str(current_date_dict.second)

@@ -52,10 +52,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179488, 0)
 shape = SubResource("BoxShape3D_r42pc")
 
-[node name="KeyTemplate" parent="." instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39385, 0.27885, -0.409228)
-
 [node name="Keys" type="Node3D" parent="."]
 
-[node name="TestCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.859843, 0.510558, 0, -0.510558, 0.859843, 0, 0.930621, 1.27715)
+[node name="KeyTemplate" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)

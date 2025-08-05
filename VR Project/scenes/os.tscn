@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=13 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
 [ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="5_72ne2"]
+[ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
 [ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
@@ -136,12 +137,18 @@ texture = ExtResource("3_fxvci")
 
 [node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
 layout_mode = 1
-offset_left = 129.0
-offset_top = 80.0
-offset_right = -236.0
-offset_bottom = -133.0
+offset_left = 11.0
+offset_top = 58.0
+offset_right = -354.0
+offset_bottom = -155.0
 
 [node name="Top-bar-example-layout" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(110.5, 9.5)
 texture = ExtResource("5_72ne2")
+
+[node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+offset_left = 183.0
+offset_top = 86.0
+offset_right = 498.0
+offset_bottom = 265.0
