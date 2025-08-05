@@ -1,8 +1,8 @@
-extends Control
+extends Panel
 
-@onready var background_editor: Panel = $WindowTemplate/Border/ControlPanelUI/BackgroundEditor
-@onready var date: RichTextLabel = $WindowTemplate/Border/ControlPanelUI/Date
-@onready var time: RichTextLabel = $WindowTemplate/Border/ControlPanelUI/Time
+@onready var background_editor: Panel = $"../Image/BackgroundEditor"
+@onready var date: RichTextLabel = $"../Image/Date"
+@onready var time: RichTextLabel = $"../Image/Time"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 
 # Initializer for top bar movement
 var dragging := false

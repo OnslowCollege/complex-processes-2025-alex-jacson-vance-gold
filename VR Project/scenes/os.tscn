@@ -141,6 +141,8 @@ position = Vector2(110.5, 9.5)
 texture = ExtResource("5_72ne2")
 
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+layout_mode = 0
+anchors_preset = 0
 offset_left = 183.0
 offset_top = 86.0
 offset_right = 498.0

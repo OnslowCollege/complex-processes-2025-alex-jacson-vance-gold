@@ -7,48 +7,42 @@
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="4_5q0ia"]
 [ext_resource type="FontFile" uid="uid://betb5ntkxttgh" path="res://assets/fonts/Chicago.ttf" id="5_o8p77"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vd23e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqc2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q0ia"]
 atlas = ExtResource("3_o3t6x")
 region = Rect2(0, 0, 13, 104)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8p77"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mori3"]
 texture = SubResource("AtlasTexture_5q0ia")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3t6x"]
 atlas = ExtResource("3_o3t6x")
 region = Rect2(14, 0, 23, 11)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5q0ia"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0etsd"]
 texture = SubResource("AtlasTexture_o3t6x")
 texture_margin_top = 11.0
 expand_margin_left = 3.0
 expand_margin_right = 3.0
 
-[sub_resource type="FontVariation" id="FontVariation_xqc2v"]
+[sub_resource type="FontVariation" id="FontVariation_bsupa"]
 base_font = ExtResource("5_o8p77")
 spacing_space = -1
 
-[node name="Control Panel" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 315.0
-offset_bottom = 179.0
+[node name="ControlPanel" instance=ExtResource("1_vd23e")]
+offset_top = 0.0
+offset_right = -197.0
+offset_bottom = -165.0
+
+[node name="Titlebar" parent="." index="0"]
 script = ExtResource("1_mori3")
 
-[node name="WindowTemplate" parent="." instance=ExtResource("1_vd23e")]
-layout_mode = 1
-offset_bottom = -2.0
-
-[node name="Title" parent="WindowTemplate/Titlebar" index="1"]
-text = "Control Panel"
-
-[node name="ControlPanelUI" type="Sprite2D" parent="WindowTemplate/Border" index="0"]
-position = Vector2(157.5, 80)
+[node name="Image" type="Sprite2D" parent="." index="1"]
+position = Vector2(157.5, 98)
 texture = ExtResource("2_o3t6x")
 
-[node name="BackgroundEditor" type="Panel" parent="WindowTemplate/Border/ControlPanelUI"]
+[node name="BackgroundEditor" type="Panel" parent="Image" index="0"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -60,38 +54,36 @@ offset_right = -167.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_vd23e")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xqc2v")
 
-[node name="Scrollbar" type="VScrollBar" parent="WindowTemplate/Border/ControlPanelUI"]
+[node name="Scrollbar" type="VScrollBar" parent="Image" index="1"]
 offset_left = -133.0
 offset_top = -53.0
 offset_right = -119.0
 offset_bottom = 51.0
-theme_override_styles/scroll = SubResource("StyleBoxTexture_o8p77")
-theme_override_styles/grabber = SubResource("StyleBoxTexture_5q0ia")
-theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_5q0ia")
-theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_5q0ia")
+theme_override_styles/scroll = SubResource("StyleBoxTexture_mori3")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_0etsd")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_0etsd")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_0etsd")
 
-[node name="Date" type="RichTextLabel" parent="WindowTemplate/Border/ControlPanelUI"]
+[node name="Date" type="RichTextLabel" parent="Image" index="2"]
 offset_left = -105.0
 offset_top = -73.0
 offset_right = -29.0
 offset_bottom = -41.0
 theme = ExtResource("4_5q0ia")
-theme_override_fonts/normal_font = SubResource("FontVariation_xqc2v")
+theme_override_fonts/normal_font = SubResource("FontVariation_bsupa")
 text = "Date"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Time" type="RichTextLabel" parent="WindowTemplate/Border/ControlPanelUI"]
+[node name="Time" type="RichTextLabel" parent="Image" index="3"]
 offset_left = -33.5
 offset_top = -73.0
 offset_right = 42.5
 offset_bottom = -41.0
 theme = ExtResource("4_5q0ia")
-theme_override_fonts/normal_font = SubResource("FontVariation_xqc2v")
+theme_override_fonts/normal_font = SubResource("FontVariation_bsupa")
 text = "Time"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[editable path="WindowTemplate"]
