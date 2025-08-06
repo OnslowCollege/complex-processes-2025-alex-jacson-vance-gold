@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=18 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
 [ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="5_72ne2"]
+[ext_resource type="Script" uid="uid://ctc43f3nptelr" path="res://scripts/top_panel.gd" id="7_5hobq"]
 [ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
 [ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
 
@@ -31,6 +32,22 @@ region = Rect2(32, 12, 31, 18)
 atlas = ExtResource("4_nvlvj")
 region = Rect2(0, 12, 31, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2aqv"]
+atlas = ExtResource("2_rxoc4")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y55b8"]
+texture = SubResource("AtlasTexture_s2aqv")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hobq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2aqv"]
+
 [node name="OS" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -49,6 +66,41 @@ grow_vertical = 2
 texture = ExtResource("8_7pos1")
 stretch_mode = 1
 
+[node name="PixelCurve" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fxvci")
+
+[node name="Top-bar-example-layout" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(110.5, 9.5)
+texture = ExtResource("5_72ne2")
+
+[node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 86.0
+offset_right = 498.0
+offset_bottom = 265.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 125.0
+offset_right = -352.0
+offset_bottom = -59.0
+
 [node name="TopPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -56,6 +108,7 @@ anchor_right = 1.0
 offset_bottom = 20.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fxvci")
+script = ExtResource("7_5hobq")
 
 [node name="Logo" type="TextureButton" parent="TopPanel"]
 layout_mode = 1
@@ -71,6 +124,27 @@ theme = ExtResource("3_nd5ct")
 texture_normal = SubResource("AtlasTexture_nvlvj")
 texture_pressed = SubResource("AtlasTexture_7pos1")
 stretch_mode = 3
+
+[node name="Panel" type="Panel" parent="TopPanel/Logo"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 139.0
+offset_bottom = 184.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_y55b8")
+
+[node name="Button" type="Button" parent="TopPanel/Logo/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 138.0
+offset_bottom = 21.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hobq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s2aqv")
+text = "About the finder..."
 
 [node name="File" type="Button" parent="TopPanel"]
 layout_mode = 1
@@ -124,33 +198,5 @@ grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "Special"
 
-[node name="PixelCurve" type="TextureRect" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_fxvci")
-
-[node name="Top-bar-example-layout" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(110.5, 9.5)
-texture = ExtResource("5_72ne2")
-
-[node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
-layout_mode = 0
-anchors_preset = 0
-offset_left = 183.0
-offset_top = 86.0
-offset_right = 498.0
-offset_bottom = 265.0
-
-[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
-layout_mode = 1
-offset_left = 8.0
-offset_top = 125.0
-offset_right = -352.0
-offset_bottom = -59.0
+[connection signal="button_down" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_down"]
+[connection signal="button_up" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_up"]
