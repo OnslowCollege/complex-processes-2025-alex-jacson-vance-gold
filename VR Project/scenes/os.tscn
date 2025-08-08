@@ -126,6 +126,7 @@ texture_pressed = SubResource("AtlasTexture_7pos1")
 stretch_mode = 3
 
 [node name="Panel" type="Panel" parent="TopPanel/Logo"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
