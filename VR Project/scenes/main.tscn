@@ -88,6 +88,7 @@ shape = SubResource("BoxShape3D_85g3d")
 [node name="Cubicles" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 mesh_library = ExtResource("9_85g3d")
+cell_scale = 0.974
 data = {
 "cells": PackedInt32Array(65535, 65534, 0, 65535, 65533, 0, 65535, 0, 0, 65535, 1, 0, 65535, 65535, 0, 65534, 65533, 131072, 65534, 65534, 131072, 65534, 65535, 131072, 65534, 0, 131072, 65534, 1, 131072)
 }
