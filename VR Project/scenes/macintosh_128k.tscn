@@ -1,129 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://bej12a3ythw4x"]
+[gd_scene load_steps=7 format=4 uid="uid://ehrfdkca75q6"]
 
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p7hfh"]
-[ext_resource type="Script" uid="uid://vev1p27xdcbk" path="res://scripts/mac.gd" id="2_hn82g"]
-[ext_resource type="PackedScene" uid="uid://dxuse00ujg05n" path="res://assets/models/Macintosh.blend" id="2_nq2c4"]
-[ext_resource type="PackedScene" uid="uid://dvegknk5lsye3" path="res://scenes/os.tscn" id="5_a01mr"]
-[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="7_qfdhb"]
-[ext_resource type="Texture2D" uid="uid://bypbdg7usc63p" path="res://assets/models/MacTex.png" id="9_a01mr"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nq2c4"]
-size = Vector3(1.42574, 1.93271, 1.39599)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_p7hfh"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="Animation" id="Animation_qfdhb"]
-resource_name = "EjectFloppy"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/FloppyDiskSnapZone:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.306732, 0.609319, 0.715577), Vector3(0.306732, 0.647924, 1.03394)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_floppy_ejected"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_a01mr"]
-resource_name = "LoadFloppy"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/FloppyDiskSnapZone:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.306732, 0.647924, 1.03394), Vector3(0.306732, 0.609319, 0.715577)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_floppy_loaded"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mesh/FloppyDiskSnapZone:enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_hn82g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/FloppyDiskSnapZone:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.306732, 0.609319, 0.715577)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mesh/FloppyDiskSnapZone:enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn82g"]
-_data = {
-&"EjectFloppy": SubResource("Animation_qfdhb"),
-&"LoadFloppy": SubResource("Animation_a01mr"),
-&"RESET": SubResource("Animation_hn82g")
-}
+[ext_resource type="Texture2D" uid="uid://bypbdg7usc63p" path="res://assets/models/MacTex.png" id="1_vku77"]
+[ext_resource type="PackedScene" uid="uid://durcmx3gh0bfs" path="res://scenes/screen.tscn" id="2_w4ibs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcc53"]
 resource_name = "MacMaterial"
 cull_mode = 2
-albedo_texture = ExtResource("9_a01mr")
+albedo_texture = ExtResource("1_vku77")
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_1acwf"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_e7bph"]
 _surfaces = [{
 "aabb": AABB(-0.7213, -0.967458, -0.786367, 1.41003, 1.95185, 1.56482),
 "format": 34896613377,
@@ -138,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_l6cne"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_751g1"]
 resource_name = "Macintosh_Cube_005"
 _surfaces = [{
 "aabb": AABB(-0.7213, -0.967458, -0.786367, 1.41003, 1.95185, 1.56482),
@@ -155,46 +41,21 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACPAG8iUM7//48AbyJQzv//aCzsBIvBAABoLOwEi8G8tCDY9fs9lmr5//QU5j2W///P2yv5PZbFuf/0FOY9lkOzedS6/j2W7QEBAAj+1ZER/gEACP7Vkf//z9sr+cOx//8EAEv5rrFKUPXS3/8EgAAABABL+a6xAADP2yv5w7EAAM/bK/k9lrtMedS6/j2WOUb/9BTmPZaUBv/0FOY9lv//z9sr+QLA//+PAG8i/7///wQAS/n/v///aCzsBBvAavn//yQhZMRq+f/0FOY7xAAAz9sr+QHAAABoLOwEBMCUBv//JCF6xJQG//QU5gvEAACPAG8i/78AAAQAS/n/v0OzedS6/hzKSlB40gJp+dX/stzTDGjrOkpQ9dLf/zDUu0wg1DBpO+JKUHjSAmlcGbtMedS6/jvivLQg2PX7CMH/stzTDGgIwXm01ddfaIw/ebTV119on8h5tLr1Emtr5sW5//QU5gPCebQ29oSC78V5tHv65oMKxkJL//U/bFu/u0wg1DBpcwE5Rv/0FOb97EJLJPa8g2bmQktp+h2Fg+Yy20bhiiP//8wks3NzFv//Mtuzc3MW///MJEbhiiP//3EVE29NB///Mtuzc3MW///MJLNzcxb//2r5//8kIf//MttG4Yoj///MJEbhiiP//5QG//8kIf////9oLOwEhO8AAGgs7ASE73EVE29NB///z0JTVlgE//9aibhQrQP//8dCuFCtA///WonAR5oC//+/FFNWWAT//8dCwEeaAv//JD/vRBAJ//8eP69Iuwn//78UU1ZYBCnbHj+uTs0K//8kP25SeQv//1qJwEeaAmrfWom4UK0Dat///wQAS/n//+0BAQAI/v//Ef4BAAj+/////48AbyL//wAAjwBvIv//AAAEAEv5//9aibhQrQP//8dCuFCtA///Hj+uTs0K///HQsBHmgI90h4/r0i7CT3SJD/vRBAJPdLHQsBHmgL//1qJwEeaAv//Hj+vSLsJ///HQrhQrQO80CQ/blJ5C7zQHj+uTs0KvNDPQlNWWAS80M9CU1ZYBP//vxRTVlgE//8kP25SeQv//7tMINQwaSedebS69RJrbbh5tNXXX2g+3EJL//U/bMXK/7Lc0wxo7+FKUHjSAmnUjpQG//8kIf//OUb/9BTm//+UBv/0FOb//0JLafodhf//ebR7+uaD//9q+f//JCH//8W5//QU5v//avn/9BTm//95tDb2hIKJ0EJL//U/bEfZQksk9ryDRNt5tLr1EmvSznm0e/rmg0qkQksk9ryD69pCS2n6HYVw3Hm0NvaEgtKilAaUALwb//9q+Vkc1xv//5QGWRzXG///avmUALwb///tAboczh0p7gAApB2MIlDOAABCJ7Iebc0R/roczh0p7v//QieyHm3Navk+InsZ//+UBj4iexn//xH+2SYxFN/gavmxJQcE//9q+eMkvBP//5QG4yS8E///lAaxJQcE///tAdkmMRTf4MW59dLf/wSAavn10t//BIAR/u/ypOc9lrSv9dLf/wSAavkAAP//BIA5RvXS3/8EgEJLINj1+z2WyElq80fnPZaUBvXS3/8EgO0BjdXp/T2W7QGN1en9w7H//0Insh4AwP//S/k/IKy/Ef7v8qTnOsQAAKQdjCILwAAAQieyHjHAAABL+T8gs7+0r/XS3/8O1UJLINj1+3L1yElq80fnt+xxFSPowhX//43qI+jCFf//cRUj6MIV//+N6hNvTQf//43qE29NB///jeoj6MIV///UCec3tgD//78UJELvAf//KvbnN7YA//8q9sztbxb//xfw8TEAAP//5w/xMQAA//9q+bElBwT/////S/k/IBXplAaxJQcE//8AAEv5PyAV6Rfwv/MlF///5w+/8yUX///UCcztbxb//2r5lAC8G///avkAAP////+UBpQAvBv//wgbblJ5C///vxQkQu8BKtuXga9Iuwn//5eBr0i7Cf//CBtuUnkL///FufXS3/89lmr59dLf/z2WEf6N1en9PZb///Ttaus9lrSv9dLf/z2WNrZq80fnPZa8tJrvK+o9lv//pB2MIgLA//9L+T8gBMD///TtausKwP//lStLFQDAlAZZHNcb//9q+Vkc1xv//wAA9O1q6wDAAACVK0sVAMAAAEv5PyAHwHCvOdLyZ9vWlAbjJLwT//9q+eMkvBP//5QGPiJ7Gf//avk+InsZ//9w4PDb5iL//+feQ3WjFv//cOAJeRYX///n3rbfWiP//xchtt9aI///jh8JeRYX//+OH/Db5iL//xchQ3WjFv//596231ojnO2N6iPowhWc7TLbRuGKI5zt596231ojod5w4PDb5iKh3o3qI+jCFaHejeoTb00HoN1w4Al5Fheg3efeQ3WjFqDd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")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_1acwf")
+shadow_mesh = SubResource("ArrayMesh_e7bph")
 
-[node name="Mac" groups=["Computer"] instance=ExtResource("1_p7hfh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00317264, 2.98023e-08, -0.000963748)
-mass = 7.5
-script = ExtResource("2_hn82g")
-press_to_hold = false
+[sub_resource type="BoxShape3D" id="BoxShape3D_vku77"]
+size = Vector3(0.366328, 0.511, 0.395)
 
-[node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0.00365724, 0.0212028, -0.0298141)
-shape = SubResource("BoxShape3D_nq2c4")
+[node name="Macintosh128K" type="StaticBody3D"]
 
-[node name="Mesh" parent="." index="1" instance=ExtResource("2_nq2c4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.228984, -0.0102224)
-
-[node name="FloppyDiskSnapZone" parent="Mesh" index="1" instance=ExtResource("7_qfdhb")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.306732, 0.609319, 0.715577)
-enabled = false
-snap_require = "Floppy"
-
-[node name="Screen" type="Sprite3D" parent="." index="2"]
-transform = Transform3D(0.050883, 0, 0, 0, 0.050711, 0.00615612, 0, -0.00492312, 0.0634117, 0.00323132, 0.107183, 0.143397)
-texture = SubResource("ViewportTexture_p7hfh")
-region_enabled = true
-region_rect = Rect2(0, 0, 512, 342)
-
-[node name="SubViewport" type="SubViewport" parent="." index="3"]
-canvas_item_default_texture_filter = 0
-size = Vector2i(512, 342)
-
-[node name="OS" parent="SubViewport" index="0" instance=ExtResource("5_a01mr")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_hn82g")
-}
-
-[node name="DebugMesh" type="MeshInstance3D" parent="." index="5"]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0.0190006, -0.00931942)
-mesh = SubResource("ArrayMesh_l6cne")
+mesh = SubResource("ArrayMesh_751g1")
 skeleton = NodePath("../Mesh")
 
-[connection signal="has_picked_up" from="Mesh/FloppyDiskSnapZone" to="." method="_on_floppy_disk_snap_zone_has_picked_up"]
+[node name="Screen" parent="." instance=ExtResource("2_w4ibs")]
+transform = Transform3D(0.1, 0, 0, 0, 0.0994622, 0.0103574, 0, -0.0103574, 0.0994622, 0.00432861, 0.10351, 0.145155)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00933594, 0.0179688, 0)
+shape = SubResource("BoxShape3D_vku77")
