@@ -1,22 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://durcmx3gh0bfs"]
 
 [ext_resource type="PackedScene" uid="uid://dvegknk5lsye3" path="res://scenes/os.tscn" id="1_erqjc"]
+[ext_resource type="Script" uid="uid://65dp8hfkoqng" path="res://scripts/screen.gd" id="1_gakxr"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_erqjc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gakxr"]
 viewport_path = NodePath("Source")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erqjc"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_erqjc")
-
-[sub_resource type="QuadMesh" id="QuadMesh_nexl8"]
-material = SubResource("StandardMaterial3D_erqjc")
-size = Vector2(2.56, 1.71)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_erqjc"]
 size = Vector3(2.56, 1.674, 0.149)
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_gakxr"]
+
 [node name="Screen" type="Node3D"]
+script = ExtResource("1_gakxr")
 
 [node name="Source" type="SubViewport" parent="."]
 canvas_item_default_texture_filter = 0
@@ -24,11 +20,18 @@ size = Vector2i(512, 342)
 
 [node name="OS" parent="Source" instance=ExtResource("1_erqjc")]
 
-[node name="Display" type="MeshInstance3D" parent="."]
-mesh = SubResource("QuadMesh_nexl8")
-skeleton = NodePath("../Source")
+[node name="Display" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture = SubResource("ViewportTexture_gakxr")
 
 [node name="Area3D" type="Area3D" parent="Display"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Display/Area3D"]
 shape = SubResource("BoxShape3D_erqjc")
+
+[node name="MousePosition3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -1.14649, 0.773191, 0.540966)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MousePosition3D"]
+shape = SubResource("SeparationRayShape3D_gakxr")
