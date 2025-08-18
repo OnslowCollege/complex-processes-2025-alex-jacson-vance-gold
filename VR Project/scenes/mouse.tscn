@@ -87,11 +87,13 @@ shape = SubResource("BoxShape3D_ouscy")
 
 [node name="Mouse" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_xa71f")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Button" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.009961, -0.00420573)
+layers = 2
 mesh = SubResource("ArrayMesh_iog6k")
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("2_ouscy")]
