@@ -4,6 +4,8 @@ extends Node3D
 @onready var cursor: AnimatedSprite2D = $Table/Macintosh128K/Screen/Source/OS/Cursor
 @onready var subviewport: SubViewport = $Table/Macintosh128K/Screen/Source
 
+# -------------------------- ALL OF THE MOUSE INPUTS CALCULATIONS -------------------------- #
+
 var is_mouse_down := false
 var held_button_index := MOUSE_BUTTON_LEFT
 var held_button_mask := 0
@@ -14,17 +16,14 @@ func _ready() -> void:
 	# Make sure the SubViewport actually takes input and keeps updating.
 	subviewport.gui_disable_input = false
 	subviewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-
 func _on_mouse_clicked(pickable: Variant) -> void:
 	# Start hold at current cursor position
 	var pos := cursor.position
 	simulate_mouse_press(pos)
-
 func _on_mouse_released(pickable: Variant) -> void:
 	# End hold at current cursor position
 	var pos := cursor.position
 	simulate_mouse_release(pos)
-
 func _process(delta: float) -> void:
 	# Update your 2D cursor from the 3D mouse
 	var mouse3Dpos = mouse.position
@@ -48,7 +47,6 @@ func simulate_mouse_motion(position: Vector2) -> void:
 	motion.button_mask = held_button_mask            # non-zero while held
 	subviewport.push_input(motion)
 	last_vp_pos = position
-
 func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LEFT) -> void:
 	is_mouse_down = true
 	held_button_index = button_index
@@ -70,7 +68,6 @@ func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LE
 	down.pressed = true
 	down.button_mask = held_button_mask
 	subviewport.push_input(down)
-
 func simulate_mouse_release(position: Vector2, button_index: int = MOUSE_BUTTON_LEFT) -> void:
 	# Send a final motion with the button still held, so drop targets get the last delta
 	var motion := InputEventMouseMotion.new()
