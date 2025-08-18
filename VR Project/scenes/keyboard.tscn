@@ -41,7 +41,7 @@ size = Vector3(3.545, 0.210453, 1.72)
 [node name="Keyboard" type="Node3D"]
 script = ExtResource("1_kjofl")
 
-[node name="Shape" type="StaticBody3D" parent="."]
+[node name="Shape" type="Area3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Keyboard" type="MeshInstance3D" parent="Shape"]
@@ -59,5 +59,134 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 [node name="KeyTemplate" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)
 
+[node name="KeyTemplate3" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.315156, -0.390463)
+
+[node name="KeyTemplate4" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.315156, -0.390463)
+
+[node name="KeyTemplate5" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.315156, -0.390463)
+
+[node name="KeyTemplate6" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.315156, -0.390463)
+
+[node name="KeyTemplate7" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.315156, -0.390463)
+
+[node name="KeyTemplate8" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.315156, -0.390463)
+
+[node name="KeyTemplate9" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.315156, -0.390463)
+
+[node name="KeyTemplate10" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.315156, -0.390463)
+
+[node name="KeyTemplate11" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.315156, -0.390463)
+
+[node name="KeyTemplate12" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)
+
+[node name="KeyTemplate13" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.315156, -0.390463)
+
 [node name="KeyTemplate2" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.234262, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.279473, -0.120194)
+
+[node name="KeyTemplate14" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.279473, -0.120194)
+
+[node name="KeyTemplate15" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.279473, -0.120194)
+
+[node name="KeyTemplate16" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.279473, -0.120194)
+
+[node name="KeyTemplate17" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.279473, -0.120194)
+
+[node name="KeyTemplate18" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.279473, -0.120194)
+
+[node name="KeyTemplate19" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.279473, -0.120194)
+
+[node name="KeyTemplate20" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.279473, -0.120194)
+
+[node name="KeyTemplate21" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.279473, -0.120194)
+
+[node name="KeyTemplate22" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.279473, -0.120194)
+
+[node name="KeyTemplate23" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.279473, -0.120194)
+
+[node name="KeyTemplate24" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.279473, -0.120194)
+
+[node name="KeyTemplate25" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.183464, 0.175949)
+
+[node name="KeyTemplate26" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.183464, 0.175949)
+
+[node name="KeyTemplate27" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.183464, 0.175949)
+
+[node name="KeyTemplate28" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.183464, 0.175949)
+
+[node name="KeyTemplate29" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.183464, 0.175949)
+
+[node name="KeyTemplate30" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.183464, 0.175949)
+
+[node name="KeyTemplate31" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.183464, 0.175949)
+
+[node name="KeyTemplate32" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.183464, 0.175949)
+
+[node name="KeyTemplate33" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.183464, 0.175949)
+
+[node name="KeyTemplate34" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.183464, 0.175949)
+
+[node name="KeyTemplate35" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.183464, 0.175949)
+
+[node name="KeyTemplate36" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.183464, 0.175949)
+
+[node name="KeyTemplate37" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.132125, 0.470134)
+
+[node name="KeyTemplate38" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.132125, 0.470134)
+
+[node name="KeyTemplate39" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.132125, 0.470134)
+
+[node name="KeyTemplate40" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.132125, 0.470134)
+
+[node name="KeyTemplate41" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.132125, 0.470134)
+
+[node name="KeyTemplate42" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.132125, 0.470134)
+
+[node name="KeyTemplate43" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.132125, 0.470134)
+
+[node name="KeyTemplate44" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.132125, 0.470134)
+
+[node name="KeyTemplate45" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.132125, 0.470134)
