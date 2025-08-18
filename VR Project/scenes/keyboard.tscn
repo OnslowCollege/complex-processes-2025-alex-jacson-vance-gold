@@ -58,3 +58,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="KeyTemplate" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)
+
+[node name="KeyTemplate2" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.234262, 0)

@@ -34,6 +34,13 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 Computer=""
 Floppy=""
 
+[input]
+
+test={
+"deadzone": 0.2,
+"events": []
+}
+
 [layer_names]
 
 3d_physics/layer_1="Static World"

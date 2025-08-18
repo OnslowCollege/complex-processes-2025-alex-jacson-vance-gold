@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccbi7pmte4388"]
+[gd_scene load_steps=6 format=3 uid="uid://ccbi7pmte4388"]
 
 [ext_resource type="Script" uid="uid://10xdg3rg7iw6" path="res://scripts/key_template.gd" id="1_4jmj4"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="2_1jjho"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4jmj4"]
 top_radius = 0.4
@@ -8,27 +9,32 @@ height = 0.5
 radial_segments = 4
 cap_bottom = false
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4jmj4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1jjho"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4jmj4"]
-viewport_path = NodePath("2D Letter")
+[sub_resource type="ViewportTexture" id="ViewportTexture_eirc1"]
+viewport_path = NodePath("InteractableAreaButton/2D Letter")
 
-[node name="KeyTemplate" type="Area3D"]
+[node name="KeyTemplate" type="Node3D"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("1_4jmj4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="InteractableAreaButton" parent="." instance=ExtResource("2_1jjho")]
+button = NodePath(".")
+displacement = Vector3(0, -0.25, 0)
+duration = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractableAreaButton"]
 transform = Transform3D(0.993485, 0, 0.993485, 0, 1.405, 0, -0.993485, 0, 0.993485, 0, 0, 0)
 mesh = SubResource("CylinderMesh_4jmj4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_4jmj4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+shape = SubResource("BoxShape3D_1jjho")
 
-[node name="2D Letter" type="SubViewport" parent="."]
+[node name="2D Letter" type="SubViewport" parent="InteractableAreaButton"]
 transparent_bg = true
 size = Vector2i(31, 76)
 
-[node name="Letter" type="Label" parent="2D Letter"]
+[node name="Letter" type="Label" parent="InteractableAreaButton/2D Letter"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,8 +52,9 @@ text = "A
 "
 horizontal_alignment = 1
 
-[node name="LetterSticker" type="Sprite3D" parent="."]
+[node name="LetterSticker" type="Sprite3D" parent="InteractableAreaButton"]
 transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.205102, 0.356031, -2.98023e-08)
-texture = SubResource("ViewportTexture_4jmj4")
+texture = SubResource("ViewportTexture_eirc1")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_key_pressed"]
+[connection signal="button_released" from="InteractableAreaButton" to="." method="_on_key_released"]
