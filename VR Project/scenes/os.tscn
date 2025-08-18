@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=21 format=3 uid="uid://dvegknk5lsye3"]
 
+[ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
 [ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="3_nd5ct"]
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
-[ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="5_72ne2"]
 [ext_resource type="Script" uid="uid://ctc43f3nptelr" path="res://scripts/top_panel.gd" id="7_5hobq"]
 [ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
 [ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
+[ext_resource type="Texture2D" uid="uid://b6pnc2stgipdc" path="res://assets/textures/cursor_icons.png" id="10_s2aqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
 atlas = ExtResource("2_rxoc4")
@@ -48,6 +49,21 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2aqv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y55b8"]
+atlas = ExtResource("10_s2aqv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hobq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y55b8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="OS" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -55,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s2aqv")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
 layout_mode = 1
@@ -67,7 +84,7 @@ texture = ExtResource("8_7pos1")
 stretch_mode = 1
 
 [node name="PixelCurve" type="TextureRect" parent="."]
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,11 +93,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_fxvci")
-
-[node name="Top-bar-example-layout" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(110.5, 9.5)
-texture = ExtResource("5_72ne2")
 
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
 layout_mode = 0
@@ -198,6 +210,11 @@ offset_bottom = 9.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "Special"
+
+[node name="Cursor" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(20, 22)
+sprite_frames = SubResource("SpriteFrames_5hobq")
 
 [connection signal="button_down" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_down"]
 [connection signal="button_up" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_up"]

@@ -11,7 +11,7 @@ var last_mouse_position3D = null
 var last_mouse_position2D = null
 
 func _ready() -> void:
-	
+	pass
 
 func _mouse_entered_touch_area():
 	is_mouse_inside = true

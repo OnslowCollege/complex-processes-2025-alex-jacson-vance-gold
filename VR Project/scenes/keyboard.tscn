@@ -42,6 +42,7 @@ size = Vector3(3.545, 0.210453, 1.72)
 script = ExtResource("1_kjofl")
 
 [node name="Shape" type="StaticBody3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Keyboard" type="MeshInstance3D" parent="Shape"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.000601038, 0.0295369, 0.000358209)
@@ -53,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179488, 0)
 shape = SubResource("BoxShape3D_r42pc")
 
 [node name="Keys" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="KeyTemplate" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)

@@ -1,7 +1,5 @@
-extends Node2D
+extends Control
 
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode != KEY_ENTER:
-			$Control/Text.text = OS.get_keycode_string(event.keycode)
-			print(OS.get_keycode_string(event.keycode))
+#func _input(event: InputEvent) -> void:
+#	if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+#		print("mouse button pressed")
