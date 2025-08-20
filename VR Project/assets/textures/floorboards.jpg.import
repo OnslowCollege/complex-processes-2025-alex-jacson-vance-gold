@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgv5aq2yowir5"
-path.s3tc="res://.godot/imported/lightplastic_diffuse.png-a4c066fed1e93739a7aeca36a54d29db.s3tc.ctex"
-path.etc2="res://.godot/imported/lightplastic_diffuse.png-a4c066fed1e93739a7aeca36a54d29db.etc2.ctex"
+uid="uid://p7kflmn20x4s"
+path.s3tc="res://.godot/imported/floorboards.jpg-3f3ac87f60d985c0c1ae386711daf6e5.s3tc.ctex"
+path.etc2="res://.godot/imported/floorboards.jpg-3f3ac87f60d985c0c1ae386711daf6e5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/textures/lightplastic_diffuse.png"
-dest_files=["res://.godot/imported/lightplastic_diffuse.png-a4c066fed1e93739a7aeca36a54d29db.s3tc.ctex", "res://.godot/imported/lightplastic_diffuse.png-a4c066fed1e93739a7aeca36a54d29db.etc2.ctex"]
+source_file="res://assets/textures/floorboards.jpg"
+dest_files=["res://.godot/imported/floorboards.jpg-3f3ac87f60d985c0c1ae386711daf6e5.s3tc.ctex", "res://.godot/imported/floorboards.jpg-3f3ac87f60d985c0c1ae386711daf6e5.etc2.ctex"]
 
 [params]
 

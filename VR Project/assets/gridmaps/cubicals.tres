@@ -7,7 +7,7 @@ resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("1_p38ys")
 metallic = 0.01
-roughness = 0.4
+roughness = 0.295522
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6uwl5"]
 _surfaces = [{
@@ -23,7 +23,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_1rnyk"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_p38ys"]
 resource_name = "Cubicle_Plane"
 _surfaces = [{
 "aabb": AABB(-1.025, -1, -1.025, 2.05, 2, 2.05),
@@ -58,7 +58,7 @@ data = PackedVector3Array(-0.975, 1, 0.975, 1, -1, 0.975, 1, 1, 0.975, -0.975, 1
 
 [resource]
 item/0/name = "Cubicle "
-item/0/mesh = SubResource("ArrayMesh_1rnyk")
+item/0/mesh = SubResource("ArrayMesh_p38ys")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/mesh_cast_shadow = 1
 item/0/shapes = [SubResource("ConcavePolygonShape3D_yemvn"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]

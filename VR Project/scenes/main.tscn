@@ -1,18 +1,25 @@
-[gd_scene load_steps=16 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=21 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bi7qlvlaw55hp" path="res://scenes/table.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://r1vcgpitiqqh" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ehrfdkca75q6" path="res://scenes/macintosh_128k.tscn" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://p7kflmn20x4s" path="res://assets/textures/floorboards.jpg" id="7_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://scenes/floppy_disk.tscn" id="7_o6xl0"]
 [ext_resource type="MeshLibrary" uid="uid://bwhlr0aglh4kt" path="res://assets/gridmaps/roof-yellow.tres" id="8_tipki"]
 [ext_resource type="MeshLibrary" uid="uid://dbsdufn4gyeu6" path="res://assets/gridmaps/cubicals.tres" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://jlcmmtgrewaf" path="res://scenes/mouse.tscn" id="9_choun"]
+[ext_resource type="Texture2D" uid="uid://cbdgum2bjl8sc" path="res://assets/textures/flourish-wallpaper-in-patina-3120-mm-architextures.jpg" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://bvgh6dld3mx0h" path="res://scenes/keyboard.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://dk7tmn0tioe7y" path="res://scenes/cup.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://d3ryxkvnl07uo" path="res://assets/models/WallTrim.blend" id="14_a8y0u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
+shading_mode = 0
 albedo_color = Color(0.484398, 0.484398, 0.484398, 1)
+albedo_texture = ExtResource("7_eb6dy")
+uv1_scale = Vector3(4.675, 4.675, 4.675)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o6xl0"]
 material = SubResource("StandardMaterial3D_o6xl0")
@@ -21,8 +28,13 @@ size = Vector2(10, 17)
 [sub_resource type="BoxShape3D" id="BoxShape3D_85g3d"]
 size = Vector3(10, 0, 17)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
+albedo_texture = ExtResource("9_trceg")
+uv1_scale = Vector3(15, 7.501, 15)
+
 [sub_resource type="BoxMesh" id="BoxMesh_choun"]
 lightmap_size_hint = Vector2i(123, 156)
+material = SubResource("StandardMaterial3D_a8y0u")
 flip_faces = true
 size = Vector3(10, 4, 16)
 
@@ -51,7 +63,7 @@ light_energy = 0.0
 [node name="BehindPlayerLight" type="SpotLight3D" parent="Environment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1, 3.43116, 3.071)
 light_color = Color(1, 1, 0.603922, 1)
-light_energy = 1.015
+light_energy = 1.5
 spot_range = 12.441
 spot_angle = 90.0
 spot_angle_attenuation = 0.133972
@@ -72,13 +84,14 @@ shadow_enabled = true
 [node name="InFrontPlayerLight" type="SpotLight3D" parent="Environment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1, 3.431, -5.741)
 light_color = Color(1, 1, 0.603922, 1)
-light_energy = 1.015
+light_energy = 1.5
 spot_range = 12.441
 spot_angle = 90.0
 spot_angle_attenuation = 0.133972
 
 [node name="Table" parent="." instance=ExtResource("3_jyhfs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, -0.525164)
+collision_layer = 65537
 
 [node name="Macintosh128K" parent="Table" instance=ExtResource("6_85g3d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.206087, 0.727778, 9.00837e-09)
@@ -126,6 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0198061, 1, -0.33746)
 
 [node name="MousePad" type="MeshInstance3D" parent="Mouse&Keyboard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297759, 0.00386572, -0.201084)
+layers = 3
 mesh = SubResource("PlaneMesh_choun")
 skeleton = NodePath("Mouse")
 
@@ -137,6 +151,12 @@ axis_lock_angular_z = true
 
 [node name="Keyboard" parent="Mouse&Keyboard" instance=ExtResource("10_choun")]
 transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0.0190302, 0.0384794, 0)
+
+[node name="Cup" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(0.606752, 0, -0.794891, 0, 1, 0, 0.794891, 0, 0.606752, -0.41205, 1.11174, -0.51932)
+
+[node name="WallTrim" parent="." instance=ExtResource("14_a8y0u")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.0767792, 0)
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
