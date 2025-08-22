@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://bvgh6dld3mx0h"]
+[gd_scene load_steps=24 format=4 uid="uid://bvgh6dld3mx0h"]
 
 [ext_resource type="PackedScene" uid="uid://ccbi7pmte4388" path="res://scenes/key_template.tscn" id="1_attx4"]
-[ext_resource type="Script" uid="uid://c6giytilj4i0a" path="res://scripts/keyboard.gd" id="1_kjofl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_204dq"]
 
@@ -208,7 +207,6 @@ shadow_mesh = SubResource("ArrayMesh_p3ehu")
 size = Vector3(7.20313, 0.695557, 0.881836)
 
 [node name="Keyboard" type="Node3D"]
-script = ExtResource("1_kjofl")
 
 [node name="Shape" type="Area3D" parent="."]
 transform = Transform3D(0.101, 0, 0, 0, 0.101, 0, 0, 0, 0.101, 0.00198597, 0, 0)

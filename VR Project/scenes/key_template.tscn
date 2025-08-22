@@ -85,4 +85,3 @@ transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361
 texture = SubResource("ViewportTexture_eirc1")
 
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_key_pressed"]
-[connection signal="button_released" from="InteractableAreaButton" to="." method="_on_key_released"]

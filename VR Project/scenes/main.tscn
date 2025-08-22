@@ -146,7 +146,9 @@ skeleton = NodePath("Mouse")
 
 [node name="Mouse" parent="Mouse&Keyboard/MousePad" instance=ExtResource("9_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0996826, 0, 0.117844)
+axis_lock_linear_x = true
 axis_lock_linear_y = true
+axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 

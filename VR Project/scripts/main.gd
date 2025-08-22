@@ -94,3 +94,12 @@ func simulate_mouse_release(position: Vector2, button_index: int = MOUSE_BUTTON_
 	hover.relative = Vector2.ZERO
 	hover.button_mask = 0
 	subviewport.push_input(hover)
+
+
+# ------------------------- ALL OF THE KEYBOARD INPUT CALCULATIONS ------------------------- # 
+
+func _input(event: InputEvent) -> void:
+	# Check if it's a keyboard event
+	if event is InputEventKey:
+		# Forward it to the sub-viewport
+		subviewport.push_input(event)
