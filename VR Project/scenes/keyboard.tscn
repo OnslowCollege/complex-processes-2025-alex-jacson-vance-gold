@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bvgh6dld3mx0h"]
+[gd_scene load_steps=25 format=4 uid="uid://bvgh6dld3mx0h"]
 
 [ext_resource type="PackedScene" uid="uid://ccbi7pmte4388" path="res://scenes/key_template.tscn" id="1_attx4"]
 [ext_resource type="Script" uid="uid://c6giytilj4i0a" path="res://scripts/keyboard.gd" id="1_kjofl"]
@@ -36,157 +36,569 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hsltp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r42pc"]
-size = Vector3(3.545, 0.210453, 1.72)
+size = Vector3(3.545, 0.210453, 1.61195)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xj5p"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d7y85"]
+_surfaces = [{
+"aabb": AABB(-0.0156247, 0.00393534, -0.0101978, 0.0312494, 0.0149868, 0.0203956),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AACFBv//iRgAAIUG//915wAAAAAAAAAAAAD//wAA//8AAHn5//+JGAAA//8AAAAAAAB5+f//decAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s4hoe"]
+resource_name = "Keyboard_Cube_002"
+_surfaces = [{
+"aabb": AABB(-0.0156247, 0.00393534, -0.0101978, 0.0312494, 0.0149868, 0.0203956),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_2xj5p"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//JteFBv//iRgs0YUG//9157DUAAAAAAAA79MAAAAAAAA5/Hn5//+JGE78hQb//4kYKvz//wAAAABc/P//AAAAAMDWefn//3Xn+tV5+f//iRi/2f//AAD//43T//8AAP//TcKFBv//decIvnn5//915xfBAAAAAP//VL95+f//iRj//4UG//915///hQb//4kY//95+f//def//8XZENJA0qDV1NZ10+TV5tOjvl69Pr2tvqW/a7xIvJS/OStFKSEsyijdJworHy83J534/wao+LoHofgyB6b4fwf/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_d7y85")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kjofl"]
+viewport_path = NodePath("InteractableAreaButton/2D Letter")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a8m4y"]
+viewport_path = NodePath("InteractableAreaButton/2D Letter")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e24mc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v2a0s"]
+_surfaces = [{
+"aabb": AABB(-0.0185247, 0.00393534, -0.0101978, 0.0370493, 0.0149868, 0.0203956),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AACFBv//iRgAAIUG//915wAAAAAAAAAAAAD//wAA//8AAHn5//+JGAAA//8AAAAAAAB5+f//decAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fkk15"]
+resource_name = "Keyboard_Cube_072"
+_surfaces = [{
+"aabb": AABB(-0.0185247, 0.00393534, -0.0101978, 0.0370493, 0.0149868, 0.0203956),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_e24mc"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//6daFBv//iRj10IUG//9153TUAAAAAAAAttMAAAAAAAA0/Hn5//+JGFL8hQb//4kYJfz//wAAAABh/P//AAAAAPzWefn//3XnNtZ5+f//iRj92f//AAD//8jT//8AAP//ssKFBv//deejvXn5//9153jBAAAAAP//9755+f//iRj//4UG//915///hQb//4kY//95+f//def//+vZy9Fi0lPV+NYt0wnWndPrvhu98bz2vve/H7z7u92/XSv+KEMshCgEKMYqPi/uJpz47waq+MwHn/giB6b4kAf/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v2a0s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nluu"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p2f5m"]
+_surfaces = [{
+"aabb": AABB(-0.0232372, -0.00526859, -0.0101978, 0.0455539, 0.0149868, 0.0203956),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAZDv//iRgAABkO//915wAAAAAAAAAAAAD//wAA//8AAOXx//+JGAAA//8AAAAAAADl8f//decAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ryxjm"]
+resource_name = "Keyboard_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.0232372, -0.00526859, -0.0101978, 0.0455539, 0.0149868, 0.0203956),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_8nluu"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//cdQZDv//iRjLzhkO//915xTSAAAAAAAAatEAAAAAAAAa/OXx//+JGHT8GQ7//4kY9/v//wAAAACU/P//AAAAAHnZ5fH//3XnvNjl8f//iRiM3P//AAD//znW//8AAP//18YZDv//ded/ueXx//9150XEAAAAAP//rLzl8f//iRj//xkO//915///GQ7//4kY///l8f//def//4rb4M7T0x7SfNgp0JfXidC4wGm7vboHwUHDCLm3uO3C0CwnJp4triWXKQsofzD+I5L4Sga2+JYImPiuBqz4+Qf/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_p2f5m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bbit"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fxkep"]
+_surfaces = [{
+"aabb": AABB(-0.0144377, -0.00526859, -0.0101978, 0.0288753, 0.0149868, 0.0203956),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD6Cv//iRgAAPoK//915wAAAAAAAAAAAAD//wAA//8AAAT1//+JGAAA//8AAAAAAAAE9f//decAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bt7hq"]
+resource_name = "Keyboard_Cube_005"
+_surfaces = [{
+"aabb": AABB(-0.0144377, -0.00526859, -0.0101978, 0.0288753, 0.0149868, 0.0203956),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_7bbit"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//cNb6Cv//iRiJ0PoK//915wDUAAAAAAAARNMAAAAAAAA2/AT1//+JGFL8+gr//4kYHPz//wAAAABq/P//AAAAAHTXBPX//3Xnr9YE9f//iRh52v//AAD//z3U//8AAP//fMP6Cv//defZvAT1//9153rBAAAAAP//E78E9f//iRj///oK//915///+gr//4kY//8E9f//def//znaP9Gn0rrUQtec0lPWCtPUvjC977z3vpjAiLtdu3HAoytzKIcs+CdRKEAqfC9dJpv4zgas+PEHn/giB6b4iwf/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fxkep")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44yvj"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p3ehu"]
+_surfaces = [{
+"aabb": AABB(-7.49999, -1, -1, 15, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AADXA///ZiYAANcD//+Y2QAAAAAAAAAAAAAn/P//ZiYAAP//AAD//wAAJ/z//5jZAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b5l4y"]
+resource_name = "Keyboard_Cube"
+_surfaces = [{
+"aabb": AABB(-7.49999, -1, -1, 15, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_44yvj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//ANLXA///ZibI0tcD//+Y2S3WAAAAAAAAgM8AAAAAAACF+yf8//9mJun71wP//2Ymevv//wAAAAD0+///AAAAADXXJ/z//5jZDdgn/P//Ziaw2///AAD//33U//8AAP//4sPXA///mNl0vCf8//+Y2bbEAAAAAP//u7sAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////vyf8//9mJv//1wP//5jZ///XA///Zib//yf8//+Y2f//+NWE0gHXDtI72yzQeNIT1JfAAbu4unfAP8Fkuii6/cAkLQYnLyyPJ0UovilmMDUlpPehB733Dwmi93sHwPc1CQAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_p3ehu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjofl"]
+size = Vector3(7.20313, 0.695557, 0.881836)
 
 [node name="Keyboard" type="Node3D"]
 script = ExtResource("1_kjofl")
 
 [node name="Shape" type="Area3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.101, 0, 0, 0, 0.101, 0, 0, 0, 0.101, 0.00198597, 0, 0)
 
 [node name="Keyboard" type="MeshInstance3D" parent="Shape"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.000601038, 0.0295369, 0.000358209)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 9.30348, -0.000601038, 0.0295369, -0.0292344)
 mesh = SubResource("ArrayMesh_5658y")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shape"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179488, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00258956, -0.184389, -0.0233333)
 shape = SubResource("BoxShape3D_r42pc")
 
 [node name="Keys" type="Node3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.021, 0, 0, 0, 0.021, 0, 0, 0, 0.021, -0.140247, 0.0272034, -0.0423019)
 
-[node name="KeyTemplate" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)
+[node name="`" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+key_name = "`"
 
-[node name="KeyTemplate3" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.315156, -0.390463)
+[node name="1" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+key_name = "1"
 
-[node name="KeyTemplate4" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.315156, -0.390463)
+[node name="2" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+key_name = "2"
 
-[node name="KeyTemplate5" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.315156, -0.390463)
+[node name="3" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+key_name = "3"
 
-[node name="KeyTemplate6" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.315156, -0.390463)
+[node name="4" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+key_name = "4"
 
-[node name="KeyTemplate7" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.315156, -0.390463)
+[node name="5" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+key_name = "5"
 
-[node name="KeyTemplate8" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.315156, -0.390463)
+[node name="6" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+key_name = "6"
 
-[node name="KeyTemplate9" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.315156, -0.390463)
+[node name="7" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+key_name = "7"
 
-[node name="KeyTemplate10" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.315156, -0.390463)
+[node name="8" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+key_name = "8"
 
-[node name="KeyTemplate11" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.315156, -0.390463)
+[node name="9" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+key_name = "9"
 
-[node name="KeyTemplate12" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.315156, -0.390463)
+[node name="0" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+key_name = "0"
 
-[node name="KeyTemplate13" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.315156, -0.390463)
+[node name="-" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+key_name = "-"
 
-[node name="KeyTemplate2" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.279473, -0.120194)
+[node name="=" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+key_name = "="
 
-[node name="KeyTemplate14" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.279473, -0.120194)
+[node name="backspace" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.25, 0, 0)
+key_name = "Backspace"
 
-[node name="KeyTemplate15" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.279473, -0.120194)
+[node name="MeshInstance3D" parent="Keys/backspace/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.46251, 0)
+mesh = SubResource("ArrayMesh_s4hoe")
 
-[node name="KeyTemplate16" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.279473, -0.120194)
+[node name="2D Letter" parent="Keys/backspace/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
 
-[node name="KeyTemplate17" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.279473, -0.120194)
+[node name="Letter" parent="Keys/backspace/InteractableAreaButton/2D Letter" index="0"]
+text = "Backspace"
 
-[node name="KeyTemplate18" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.279473, -0.120194)
+[node name="LetterSticker" parent="Keys/backspace/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_kjofl")
 
-[node name="KeyTemplate19" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.279473, -0.120194)
+[node name="tab" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.2, 1)
+key_name = "Tab"
 
-[node name="KeyTemplate20" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.279473, -0.120194)
+[node name="MeshInstance3D" parent="Keys/tab/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.46251, 0)
+mesh = SubResource("ArrayMesh_s4hoe")
 
-[node name="KeyTemplate21" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.279473, -0.120194)
+[node name="2D Letter" parent="Keys/tab/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
 
-[node name="KeyTemplate22" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.279473, -0.120194)
+[node name="Letter" parent="Keys/tab/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
 
-[node name="KeyTemplate23" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.279473, -0.120194)
+[node name="LetterSticker" parent="Keys/tab/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
 
-[node name="KeyTemplate24" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.279473, -0.120194)
+[node name="q" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.2, 1)
+key_name = "q"
 
-[node name="KeyTemplate25" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.183464, 0.175949)
+[node name="w" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.2, 1)
+key_name = "w"
 
-[node name="KeyTemplate26" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.183464, 0.175949)
+[node name="e" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.2, 1)
+key_name = "e"
 
-[node name="KeyTemplate27" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.183464, 0.175949)
+[node name="r" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.2, 1)
+key_name = "r"
 
-[node name="KeyTemplate28" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.183464, 0.175949)
+[node name="t" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.2, 1)
+key_name = "t"
 
-[node name="KeyTemplate29" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.183464, 0.175949)
+[node name="y" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.2, 1)
+key_name = "y"
 
-[node name="KeyTemplate30" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.183464, 0.175949)
+[node name="u" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.2, 1)
+key_name = "u"
 
-[node name="KeyTemplate31" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.183464, 0.175949)
+[node name="i" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -0.2, 1)
+key_name = "i"
 
-[node name="KeyTemplate32" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.183464, 0.175949)
+[node name="o" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -0.2, 1)
+key_name = "o"
 
-[node name="KeyTemplate33" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.183464, 0.175949)
+[node name="p" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -0.2, 1)
+key_name = "p"
 
-[node name="KeyTemplate34" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.183464, 0.175949)
+[node name="[" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, -0.2, 1)
+key_name = "["
 
-[node name="KeyTemplate35" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.39219, 0.183464, 0.175949)
+[node name="]" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.2, 1)
+key_name = "]"
 
-[node name="KeyTemplate36" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.34305, 0.183464, 0.175949)
+[node name="backslash" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.2, 1)
+key_name = "Backslash"
 
-[node name="KeyTemplate37" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.08407, 0.132125, 0.470134)
+[node name="caps" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.4, 2)
+key_name = "Tab"
 
-[node name="KeyTemplate38" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.803658, 0.132125, 0.470134)
+[node name="MeshInstance3D" parent="Keys/caps/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.46251, 0)
+mesh = SubResource("ArrayMesh_fkk15")
 
-[node name="KeyTemplate39" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.518216, 0.132125, 0.470134)
+[node name="2D Letter" parent="Keys/caps/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
 
-[node name="KeyTemplate40" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.227682, 0.132125, 0.470134)
+[node name="Letter" parent="Keys/caps/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
 
-[node name="KeyTemplate41" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0312245, 0.132125, 0.470134)
+[node name="LetterSticker" parent="Keys/caps/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
 
-[node name="KeyTemplate42" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.282736, 0.132125, 0.470134)
+[node name="a" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -0.4, 2)
+key_name = "a"
 
-[node name="KeyTemplate43" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.539758, 0.132125, 0.470134)
+[node name="s" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, -0.4, 2)
+key_name = "s"
 
-[node name="KeyTemplate44" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.796744, 0.132125, 0.470134)
+[node name="d" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, -0.4, 2)
+key_name = "d"
 
-[node name="KeyTemplate45" parent="Keys" instance=ExtResource("1_attx4")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.08049, 0.132125, 0.470134)
+[node name="f" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, -0.4, 2)
+key_name = "f"
+
+[node name="g" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, -0.4, 2)
+key_name = "g"
+
+[node name="h" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, -0.4, 2)
+key_name = "h"
+
+[node name="j" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8, -0.4, 2)
+key_name = "j"
+
+[node name="k" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.4, 2)
+key_name = "k"
+
+[node name="l" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8, -0.4, 2)
+key_name = "l"
+
+[node name=";" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8, -0.4, 2)
+key_name = ";"
+
+[node name="\'" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8, -0.4, 2)
+key_name = "'"
+
+[node name="return" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1, -0.4, 2)
+key_name = "Return"
+
+[node name="MeshInstance3D" parent="Keys/return/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.46251, 0)
+mesh = SubResource("ArrayMesh_fkk15")
+
+[node name="2D Letter" parent="Keys/return/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/return/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/return/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="lshift" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.6, 3)
+key_name = "LShift"
+
+[node name="MeshInstance3D" parent="Keys/lshift/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0831509, 0)
+mesh = SubResource("ArrayMesh_ryxjm")
+
+[node name="2D Letter" parent="Keys/lshift/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/lshift/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/lshift/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="z" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, -0.6, 3)
+key_name = "z"
+
+[node name="x" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, -0.6, 3)
+key_name = "x"
+
+[node name="c" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, -0.6, 3)
+key_name = "c"
+
+[node name="v" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, -0.6, 3)
+key_name = "v"
+
+[node name="b" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, -0.6, 3)
+
+[node name="n" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, -0.6, 3)
+key_name = "n"
+
+[node name="m" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1, -0.6, 3)
+key_name = "m"
+
+[node name="," parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1, -0.6, 3)
+key_name = ","
+
+[node name="fullstop" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1, -0.6, 3)
+key_name = "."
+
+[node name="forwardslash" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1, -0.6, 3)
+key_name = "/"
+
+[node name="rshift" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8364, -0.6, 3)
+key_name = "LShift"
+
+[node name="MeshInstance3D" parent="Keys/rshift/InteractableAreaButton" index="0"]
+transform = Transform3D(49.63, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0831509, 0)
+mesh = SubResource("ArrayMesh_ryxjm")
+
+[node name="2D Letter" parent="Keys/rshift/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/rshift/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/rshift/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="loptions" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11022, -0.800001, 4.01862)
+key_name = "Loptions"
+
+[node name="mac" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35, -0.8, 4)
+key_name = "Mac"
+
+[node name="MeshInstance3D" parent="Keys/mac/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0587313, 0)
+mesh = SubResource("ArrayMesh_bt7hq")
+
+[node name="2D Letter" parent="Keys/mac/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/mac/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/mac/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="spacebar" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74, -0.8, 4)
+key_name = "Spacebar"
+
+[node name="MeshInstance3D" parent="Keys/spacebar/InteractableAreaButton" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0867755, 0)
+mesh = SubResource("ArrayMesh_b5l4y")
+
+[node name="CollisionShape3D" parent="Keys/spacebar/InteractableAreaButton" index="1"]
+shape = SubResource("BoxShape3D_kjofl")
+
+[node name="2D Letter" parent="Keys/spacebar/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/spacebar/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/spacebar/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="enter" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3, -0.8, 4)
+key_name = "Enter"
+
+[node name="MeshInstance3D" parent="Keys/enter/InteractableAreaButton" index="0"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0587313, 0)
+mesh = SubResource("ArrayMesh_bt7hq")
+
+[node name="2D Letter" parent="Keys/enter/InteractableAreaButton" index="2"]
+size = Vector2i(156, 51)
+
+[node name="Letter" parent="Keys/enter/InteractableAreaButton/2D Letter" index="0"]
+text = "Tab"
+horizontal_alignment = 0
+
+[node name="LetterSticker" parent="Keys/enter/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_a8m4y")
+
+[node name="roptions" parent="Keys" instance=ExtResource("1_attx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.8, 4)
+key_name = "Roptions"
+
+[editable path="Keys/backspace"]
+[editable path="Keys/tab"]
+[editable path="Keys/caps"]
+[editable path="Keys/return"]
+[editable path="Keys/lshift"]
+[editable path="Keys/rshift"]
+[editable path="Keys/mac"]
+[editable path="Keys/spacebar"]
+[editable path="Keys/enter"]

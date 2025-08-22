@@ -1,15 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccbi7pmte4388"]
+[gd_scene load_steps=8 format=4 uid="uid://ccbi7pmte4388"]
 
 [ext_resource type="Script" uid="uid://10xdg3rg7iw6" path="res://scripts/key_template.gd" id="1_4jmj4"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="2_1jjho"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_4jmj4"]
-top_radius = 0.4
-height = 0.5
-radial_segments = 4
-cap_bottom = false
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3daxj"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l8pow"]
+_surfaces = [{
+"aabb": AABB(-0.0101979, -0.00526859, -0.0101978, 0.0203956, 0.0149868, 0.0203956),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AACJGP//iRgAAIkY//915wAAAAAAAAAAAAD//wAA//8AAHXn//+JGAAA//8AAAAAAAB15///decAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1jjho"]
+resource_name = "Keyboard_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.0101979, -0.00526859, -0.0101978, 0.0203956, 0.0149868, 0.0203956),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_3daxj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//TtWJGP//iRiJz4kY//915+jSAAAAAAAANdIAAAAAAABA/HXn//+JGE78iRj//4kYB/z//wAAAACC/P//AAAAAJjYdef//3Xn1td15///iRil2///AAD//1rV//8AAP//Y8WJGP//defzunXn//915yzBAAAAAP//6r915///iRj//4kY//915///iRj//4kY//915///def///ja6s9P00PT89c70QjXotEuvsy9Lr28vhjCH7rbudvBTiwlJyctqiYKKf8oEDADJZX4ggax+E0IoPgvB6T4ZQf/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l8pow")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1jjho"]
+size = Vector3(1.35767, 0.695557, 0.881836)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_eirc1"]
 viewport_path = NodePath("InteractableAreaButton/2D Letter")
@@ -17,6 +44,7 @@ viewport_path = NodePath("InteractableAreaButton/2D Letter")
 [node name="KeyTemplate" type="Node3D"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("1_4jmj4")
+key_name = "b"
 
 [node name="InteractableAreaButton" parent="." instance=ExtResource("2_1jjho")]
 button = NodePath(".")
@@ -24,8 +52,8 @@ displacement = Vector3(0, -0.25, 0)
 duration = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractableAreaButton"]
-transform = Transform3D(0.993485, 0, 0.993485, 0, 1.405, 0, -0.993485, 0, 0.993485, 0, 0, 0)
-mesh = SubResource("CylinderMesh_4jmj4")
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0554212, 0)
+mesh = SubResource("ArrayMesh_1jjho")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
 shape = SubResource("BoxShape3D_1jjho")
@@ -53,7 +81,7 @@ text = "A
 horizontal_alignment = 1
 
 [node name="LetterSticker" type="Sprite3D" parent="InteractableAreaButton"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.205102, 0.356031, -2.98023e-08)
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.205102, 0.387696, -2.98023e-08)
 texture = SubResource("ViewportTexture_eirc1")
 
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_key_pressed"]

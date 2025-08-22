@@ -1,6 +1,7 @@
 extends Node3D
 
-var key_name : String
+@export var key_name: String
+@onready var letter: Label = $"InteractableAreaButton/2D Letter/Letter"
 
 const key_map = {
 	"`": KEY_QUOTELEFT,
@@ -15,7 +16,7 @@ const key_map = {
 	"9": KEY_9,
 	"0": KEY_0,
 	"-": KEY_MINUS,
-	"+": KEY_EQUAL,
+	"=": KEY_EQUAL,
 	"Backspace": KEY_BACKSPACE,
 	"Tab": KEY_TAB,
 	"q": KEY_Q,
@@ -42,7 +43,7 @@ const key_map = {
 	"k": KEY_K,
 	"l": KEY_L,
 	";": KEY_SEMICOLON,
-	"Quote": KEY_APOSTROPHE,
+	"'": KEY_APOSTROPHE,
 	"Return": KEY_ENTER,
 	"LShift": KEY_SHIFT,
 	"z": KEY_Z,
@@ -63,13 +64,16 @@ const key_map = {
 	"Roptions": KEY_ALT
 }
 
-func _on_key_pressed(key_name: String) -> void:
+func _ready() -> void:
+	letter.text = key_name
+
+func _on_key_pressed() -> void:
 	if key_map.has(key_name):
 		simulate_key_press(key_map[key_name])
-		print("KEY" + str(key_name) + "PRESSED")
+		print("Pressed:", key_name)
 	pass # Replace with function body.
 
-func _on_key_released(key_name: String) -> void:
+func _on_key_released() -> void:
 	if key_map.has(key_name):
 		simulate_key_release(key_map[key_name])
 	pass # Replace with function body.
@@ -78,12 +82,15 @@ func _on_key_released(key_name: String) -> void:
 func simulate_key_press(keycode: int):
 	var ev := InputEventKey.new()
 	ev.keycode = keycode
+	ev.physical_keycode = keycode  # important
 	ev.pressed = true
+	ev.echo = false
 	Input.parse_input_event(ev)
-
 
 func simulate_key_release(keycode: int):
 	var ev := InputEventKey.new()
 	ev.keycode = keycode
+	ev.physical_keycode = keycode
 	ev.pressed = false
+	ev.echo = false
 	Input.parse_input_event(ev)

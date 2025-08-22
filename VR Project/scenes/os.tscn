@@ -216,5 +216,12 @@ z_index = 1
 position = Vector2(20, 22)
 sprite_frames = SubResource("SpriteFrames_5hobq")
 
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 61.0
+offset_right = 237.0
+offset_bottom = 136.0
+
 [connection signal="button_down" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_down"]
 [connection signal="button_up" from="TopPanel/Logo" to="TopPanel" method="_on_logo_button_up"]

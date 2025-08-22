@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="8_sawou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv3j3"]
-size = Vector3(0.12, 0.005, 0.123)
+size = Vector3(0.12, 0.0270996, 0.123)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pg5eg"]
 resource_name = "FloppyMaterial"
@@ -66,7 +66,7 @@ metadata/_custom_type_script = "uid://b8448dx55twip"
 shape = SubResource("BoxShape3D_tv3j3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
+transform = Transform3D(0.06, 0, 0, 0, 0.382468, 0, 0, 0, 0.06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_58nei")
 
 [node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("3_ewsl7")]

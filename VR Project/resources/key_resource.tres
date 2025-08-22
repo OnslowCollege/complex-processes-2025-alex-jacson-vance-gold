@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="key" load_steps=2 format=3 uid="uid://c4abov1gd37qb"]
+
+[ext_resource type="Script" uid="uid://dnt15o7jl7gbe" path="res://resources/key.gd" id="1_28w58"]
+
+[resource]
+script = ExtResource("1_28w58")
+key_name = "a"
