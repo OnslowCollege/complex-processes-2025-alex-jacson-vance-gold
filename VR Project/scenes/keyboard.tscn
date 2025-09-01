@@ -580,9 +580,10 @@ text = "Tab"
 horizontal_alignment = 0
 
 [node name="MacIcon" type="TextureRect" parent="Keys/mac/InteractableAreaButton/2D Letter" index="1"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.11, 0.11)
+offset_top = 4.0
+offset_right = 512.0
+offset_bottom = 516.0
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_kjofl")
 
 [node name="LetterSticker" parent="Keys/mac/InteractableAreaButton" index="3"]
