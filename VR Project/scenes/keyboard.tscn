@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=4 uid="uid://bvgh6dld3mx0h"]
+[gd_scene load_steps=33 format=4 uid="uid://bvgh6dld3mx0h"]
 
 [ext_resource type="PackedScene" uid="uid://ccbi7pmte4388" path="res://scenes/key_template.tscn" id="1_attx4"]
+[ext_resource type="Texture2D" uid="uid://ktncf3vm3cta" path="res://assets/models/textures/command_texture.png" id="2_kjofl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_204dq"]
 
@@ -70,10 +71,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d7y85")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kjofl"]
-viewport_path = NodePath("InteractableAreaButton/2D Letter")
+viewport_path = NodePath("Keys/backspace/InteractableAreaButton/2D Letter")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a8m4y"]
-viewport_path = NodePath("InteractableAreaButton/2D Letter")
+[sub_resource type="ViewportTexture" id="ViewportTexture_7u8o3"]
+viewport_path = NodePath("Keys/tab/InteractableAreaButton/2D Letter")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e24mc"]
 
@@ -107,6 +108,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v2a0s")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_0x2yl"]
+viewport_path = NodePath("Keys/caps/InteractableAreaButton/2D Letter")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4osg4"]
+viewport_path = NodePath("Keys/return/InteractableAreaButton/2D Letter")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nluu"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p2f5m"]
@@ -139,6 +146,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p2f5m")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_attx4"]
+viewport_path = NodePath("Keys/lshift/InteractableAreaButton/2D Letter")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rk632"]
+viewport_path = NodePath("Keys/rshift/InteractableAreaButton/2D Letter")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ucol"]
+viewport_path = NodePath("Keys/roptions/InteractableAreaButton/2D Letter")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bbit"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fxkep"]
@@ -170,6 +186,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fxkep")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ya57k"]
+viewport_path = NodePath("Keys/mac/InteractableAreaButton/2D Letter")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44yvj"]
 
@@ -205,6 +224,12 @@ shadow_mesh = SubResource("ArrayMesh_p3ehu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjofl"]
 size = Vector3(7.20313, 0.695557, 0.881836)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a8m4y"]
+viewport_path = NodePath("Keys/caps/InteractableAreaButton/2D Letter")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rxi2b"]
+viewport_path = NodePath("Keys/enter/InteractableAreaButton/2D Letter")
 
 [node name="Keyboard" type="Node3D"]
 
@@ -309,8 +334,8 @@ text = "Tab"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/tab/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.170787, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_7u8o3")
 
 [node name="q" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.2, 1)
@@ -362,11 +387,11 @@ key_name = "]"
 
 [node name="backslash" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.2, 1)
-key_name = "Backslash"
+key_name = "|"
 
 [node name="caps" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.4, 2)
-key_name = "Tab"
+key_name = "Capslock"
 
 [node name="MeshInstance3D" parent="Keys/caps/InteractableAreaButton" index="0"]
 transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.46251, 0)
@@ -376,12 +401,12 @@ mesh = SubResource("ArrayMesh_fkk15")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/caps/InteractableAreaButton/2D Letter" index="0"]
-text = "Tab"
+text = "Capslock"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/caps/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.0449009, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_0x2yl")
 
 [node name="a" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -0.4, 2)
@@ -439,16 +464,16 @@ mesh = SubResource("ArrayMesh_fkk15")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/return/InteractableAreaButton/2D Letter" index="0"]
-text = "Tab"
+text = "Return"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/return/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.239161, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_4osg4")
 
 [node name="lshift" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.6, 3)
-key_name = "LShift"
+key_name = "Shift"
 
 [node name="MeshInstance3D" parent="Keys/lshift/InteractableAreaButton" index="0"]
 transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0831509, 0)
@@ -458,12 +483,12 @@ mesh = SubResource("ArrayMesh_ryxjm")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/lshift/InteractableAreaButton/2D Letter" index="0"]
-text = "Tab"
+text = "Shift"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/lshift/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.5161, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_attx4")
 
 [node name="z" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, -0.6, 3)
@@ -506,7 +531,7 @@ key_name = "/"
 
 [node name="rshift" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8364, -0.6, 3)
-key_name = "LShift"
+key_name = "Shift"
 
 [node name="MeshInstance3D" parent="Keys/rshift/InteractableAreaButton" index="0"]
 transform = Transform3D(49.63, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0831509, 0)
@@ -516,16 +541,27 @@ mesh = SubResource("ArrayMesh_ryxjm")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/rshift/InteractableAreaButton/2D Letter" index="0"]
-text = "Tab"
+text = "Shift"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/rshift/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.487776, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_rk632")
 
 [node name="loptions" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11022, -0.800001, 4.01862)
-key_name = "Loptions"
+key_name = "Options"
+
+[node name="2D Letter" parent="Keys/loptions/InteractableAreaButton" index="2"]
+size = Vector2i(86, 76)
+
+[node name="Letter" parent="Keys/loptions/InteractableAreaButton/2D Letter" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "Options"
+
+[node name="LetterSticker" parent="Keys/loptions/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.0267234, 0.387696, -0.144385)
+texture = SubResource("ViewportTexture_1ucol")
 
 [node name="mac" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35, -0.8, 4)
@@ -539,12 +575,19 @@ mesh = SubResource("ArrayMesh_bt7hq")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/mac/InteractableAreaButton/2D Letter" index="0"]
+visible = false
 text = "Tab"
 horizontal_alignment = 0
 
+[node name="MacIcon" type="TextureRect" parent="Keys/mac/InteractableAreaButton/2D Letter" index="1"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_kjofl")
+
 [node name="LetterSticker" parent="Keys/mac/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.138119, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_ya57k")
 
 [node name="spacebar" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74, -0.8, 4)
@@ -580,16 +623,36 @@ mesh = SubResource("ArrayMesh_bt7hq")
 size = Vector2i(156, 51)
 
 [node name="Letter" parent="Keys/enter/InteractableAreaButton/2D Letter" index="0"]
-text = "Tab"
+text = "Enter"
 horizontal_alignment = 0
 
 [node name="LetterSticker" parent="Keys/enter/InteractableAreaButton" index="3"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.00277853, 0.398687, -0.147681)
-texture = SubResource("ViewportTexture_a8m4y")
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.176836, 0.398687, -0.147681)
+texture = SubResource("ViewportTexture_rxi2b")
 
 [node name="roptions" parent="Keys" instance=ExtResource("1_attx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.8, 4)
-key_name = "Roptions"
+key_name = "Options"
+
+[node name="2D Letter" parent="Keys/roptions/InteractableAreaButton" index="2"]
+size = Vector2i(86, 76)
+
+[node name="Letter" parent="Keys/roptions/InteractableAreaButton/2D Letter" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "Options"
+
+[node name="LetterSticker" parent="Keys/roptions/InteractableAreaButton" index="3"]
+transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, 0.0267234, 0.387696, -0.144385)
+texture = SubResource("ViewportTexture_1ucol")
+
+[node name="TESTING" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.215008, 0.976612, 0, -0.976612, 0.215008, 0, 0.159979, 0.0354563)
+
+[node name="Camera3D" type="Camera3D" parent="TESTING"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="TESTING"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0327189, 0.188112)
+light_energy = 0.562
 
 [editable path="Keys/backspace"]
 [editable path="Keys/tab"]
@@ -597,6 +660,8 @@ key_name = "Roptions"
 [editable path="Keys/return"]
 [editable path="Keys/lshift"]
 [editable path="Keys/rshift"]
+[editable path="Keys/loptions"]
 [editable path="Keys/mac"]
 [editable path="Keys/spacebar"]
 [editable path="Keys/enter"]
+[editable path="Keys/roptions"]

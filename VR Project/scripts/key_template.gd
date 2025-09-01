@@ -11,14 +11,14 @@ const key_map = {
 	"Tab": KEY_TAB, "q": KEY_Q, "w": KEY_W, "e": KEY_E, "r": KEY_R,
 	"t": KEY_T, "y": KEY_Y, "u": KEY_U, "i": KEY_I, "o": KEY_O,
 	"p": KEY_P, "[": KEY_BRACKETLEFT, "]": KEY_BRACKETRIGHT,
-	"Backslash": KEY_BACKSLASH, "Caps": KEY_CAPSLOCK,
+	"|": KEY_BACKSLASH, "Capslock": KEY_CAPSLOCK,
 	"a": KEY_A, "s": KEY_S, "d": KEY_D, "f": KEY_F, "g": KEY_G,
 	"h": KEY_H, "j": KEY_J, "k": KEY_K, "l": KEY_L,
 	";": KEY_SEMICOLON, "'": KEY_APOSTROPHE, "Return": KEY_ENTER,
-	"LShift": KEY_SHIFT, "z": KEY_Z, "x": KEY_X, "c": KEY_C,
+	"Shift": KEY_SHIFT, "z": KEY_Z, "x": KEY_X, "c": KEY_C,
 	"v": KEY_V, "b": KEY_B, "n": KEY_N, "m": KEY_M,
 	",": KEY_COMMA, ".": KEY_PERIOD, "/": KEY_SLASH,
-	"RShift": KEY_SHIFT, "Loptions": KEY_ALT, "Mac": KEY_META,
+	"RShift": KEY_SHIFT, "Options": KEY_ALT, "Mac": KEY_META,
 	"Spacebar": KEY_SPACE, "Enter": KEY_ENTER, "Roptions": KEY_ALT
 }
 
@@ -31,11 +31,10 @@ func _on_key_pressed(button: Variant) -> void:
 func send_fake_input():
 	var ev := InputEventKey.new()
 	ev.keycode = key_map.get(key_name, KEY_UNKNOWN)
-	ev.unicode = int(key_name.unicode_at(0)) # or key_name.to_upper() if needed
+	ev.unicode = int(key_name.unicode_at(0)) 
 	ev.pressed = true
 	Input.parse_input_event(ev)
 
-	# Optionally send release
 	var ev_up := ev.duplicate()
 	ev_up.pressed = false
 	Input.parse_input_event(ev_up)

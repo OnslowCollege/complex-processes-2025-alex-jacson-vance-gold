@@ -43,8 +43,8 @@ func _process(delta: float) -> void:
 func simulate_mouse_motion(position: Vector2) -> void:
 	var motion := InputEventMouseMotion.new()
 	motion.position = position
-	motion.relative = position - last_vp_pos         # critical for drag
-	motion.button_mask = held_button_mask            # non-zero while held
+	motion.relative = position - last_vp_pos 
+	motion.button_mask = held_button_mask    
 	subviewport.push_input(motion)
 	last_vp_pos = position
 func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LEFT) -> void:
@@ -52,7 +52,6 @@ func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LE
 	held_button_index = button_index
 	held_button_mask = 1 << (button_index - 1)
 
-	# Prime hover at this position (mask 0) so focus/hover is correct
 	var hover := InputEventMouseMotion.new()
 	hover.position = position
 	hover.relative = Vector2.ZERO
@@ -61,7 +60,6 @@ func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LE
 	last_vp_pos = position
 	last_pos_initialized = true
 
-	# Actual press
 	var down := InputEventMouseButton.new()
 	down.position = position
 	down.button_index = button_index
@@ -69,7 +67,7 @@ func simulate_mouse_press(position: Vector2, button_index: int = MOUSE_BUTTON_LE
 	down.button_mask = held_button_mask
 	subviewport.push_input(down)
 func simulate_mouse_release(position: Vector2, button_index: int = MOUSE_BUTTON_LEFT) -> void:
-	# Send a final motion with the button still held, so drop targets get the last delta
+	
 	var motion := InputEventMouseMotion.new()
 	motion.position = position
 	motion.relative = position - last_vp_pos
@@ -77,7 +75,6 @@ func simulate_mouse_release(position: Vector2, button_index: int = MOUSE_BUTTON_
 	subviewport.push_input(motion)
 	last_vp_pos = position
 
-	# Release
 	var up := InputEventMouseButton.new()
 	up.position = position
 	up.button_index = button_index
@@ -85,7 +82,6 @@ func simulate_mouse_release(position: Vector2, button_index: int = MOUSE_BUTTON_
 	up.button_mask = 0
 	subviewport.push_input(up)
 
-	# Clear state and send a hover with no buttons held
 	is_mouse_down = false
 	held_button_mask = 0
 
