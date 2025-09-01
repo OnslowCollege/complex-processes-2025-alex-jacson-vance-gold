@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var key_name: String
-@onready var letter: Label = $"InteractableAreaButton/2D Letter/Letter"
+@onready var letter: Label3D = $InteractableAreaButton/Text
 
 const key_map = {
 	"`": KEY_QUOTELEFT,

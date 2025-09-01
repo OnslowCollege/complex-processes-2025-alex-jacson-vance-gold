@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://ccbi7pmte4388"]
+[gd_scene load_steps=7 format=4 uid="uid://ccbi7pmte4388"]
 
 [ext_resource type="Script" uid="uid://10xdg3rg7iw6" path="res://scripts/key_template.gd" id="1_4jmj4"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="2_1jjho"]
@@ -38,9 +38,6 @@ shadow_mesh = SubResource("ArrayMesh_l8pow")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1jjho"]
 size = Vector3(1.35767, 0.695557, 0.881836)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_eirc1"]
-viewport_path = NodePath("InteractableAreaButton/2D Letter")
-
 [node name="KeyTemplate" type="Node3D"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("1_4jmj4")
@@ -51,37 +48,19 @@ button = NodePath(".")
 displacement = Vector3(0, -0.25, 0)
 duration = 0.05
 
+[node name="Text" type="Label3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.280231, 0.397, -0.176729)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "A"
+font_size = 47
+horizontal_alignment = 0
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractableAreaButton"]
 transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 0, -0.0554212, 0)
 mesh = SubResource("ArrayMesh_1jjho")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
 shape = SubResource("BoxShape3D_1jjho")
-
-[node name="2D Letter" type="SubViewport" parent="InteractableAreaButton"]
-transparent_bg = true
-size = Vector2i(31, 76)
-
-[node name="Letter" type="Label" parent="InteractableAreaButton/2D Letter"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "A
-"
-horizontal_alignment = 1
-
-[node name="LetterSticker" type="Sprite3D" parent="InteractableAreaButton"]
-transform = Transform3D(0.845, 0, 0, 0, -3.69361e-08, 0.845, 0, -0.845, -3.69361e-08, -0.205102, 0.387696, -2.98023e-08)
-texture = SubResource("ViewportTexture_eirc1")
 
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_key_pressed"]
