@@ -32,7 +32,10 @@ func _ready():
 			btn.text = ""
 			btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
-			btn.set_scale(Vector2(1.0,1.0))
+			btn.remove_theme_stylebox_override("Focus")
+			btn.focus_mode = Control.FOCUS_NONE
+			btn.custom_minimum_size = Vector2(1, 1)
+			
 
 			var color_rect = ColorRect.new()
 			color_rect.color = image.get_pixel(x, y)
