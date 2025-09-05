@@ -105,6 +105,7 @@ mouse_filter = 2
 texture = ExtResource("3_fxvci")
 
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+material = null
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0

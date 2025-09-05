@@ -30,11 +30,12 @@ func _ready():
 		for x in GRID_SIZE:
 			var btn = Button.new()
 			btn.text = ""
+			btn.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 			btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
 			btn.remove_theme_stylebox_override("Focus")
 			btn.focus_mode = Control.FOCUS_NONE
-			btn.custom_minimum_size = Vector2(1, 1)
+			btn.custom_minimum_size = Vector2(4, 4)
 			
 
 			var color_rect = ColorRect.new()
