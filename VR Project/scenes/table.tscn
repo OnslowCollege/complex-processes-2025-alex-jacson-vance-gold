@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu86w"]
 size = Vector3(0.857178, 1, 1.67285)
 
-[node name="Table" type="Area3D"]
+[node name="Table" type="StaticBody3D"]
 collision_layer = 65536
 collision_mask = 0
 

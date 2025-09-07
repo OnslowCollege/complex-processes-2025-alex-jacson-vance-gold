@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=27 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -15,6 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dk7tmn0tioe7y" path="res://scenes/cup.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3ryxkvnl07uo" path="res://assets/models/WallTrim.blend" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://byuayh3u41ox0" path="res://scenes/Picture.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://c4xoum6tgvhm7" path="res://scenes/pen.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://b480lyr2mkuxs" path="res://scenes/pen_2.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://dmdhhx443xnqj" path="res://assets/models/stickynote1.blend" id="18_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://cx46t357q5dly" path="res://assets/models/stickynote2.blend" id="19_yc10j"]
+[ext_resource type="PackedScene" uid="uid://dmqmbq8kuov04" path="res://assets/models/stickynote3.blend" id="20_jscy8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
 shading_mode = 0
@@ -163,6 +168,27 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.0767792, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("15_jkv2x")]
 transform = Transform3D(-0.0864429, 0, -0.117334, 0, 0.145738, 0, 0.117334, 0, -0.0864429, 0.662214, 1.1459, -0.660383)
+
+[node name="Pen" parent="." instance=ExtResource("16_jbj1t")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.403267, 1.28738, -0.533314)
+
+[node name="pen2" parent="." instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360419, 1.25061, -0.523309)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165165, 1.86009, -0.949055)
+
+[node name="stickynote1" parent="." instance=ExtResource("18_gqmmt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.534997, 1.63213, -0.947134)
+visible = false
+
+[node name="stickynote2" parent="." instance=ExtResource("19_yc10j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.385049, 1.45192, -0.947134)
+visible = false
+
+[node name="stickynote3" parent="." instance=ExtResource("20_jscy8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.374994, 1.77046, -0.947134)
+visible = false
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
