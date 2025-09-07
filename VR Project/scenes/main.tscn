@@ -180,15 +180,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165165, 1.86009, -0.949055)
 
 [node name="stickynote1" parent="." instance=ExtResource("18_gqmmt")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.534997, 1.63213, -0.947134)
-visible = false
 
 [node name="stickynote2" parent="." instance=ExtResource("19_yc10j")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.385049, 1.45192, -0.947134)
-visible = false
 
 [node name="stickynote3" parent="." instance=ExtResource("20_jscy8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.374994, 1.77046, -0.947134)
-visible = false
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
