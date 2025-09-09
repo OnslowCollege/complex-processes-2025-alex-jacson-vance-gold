@@ -7,13 +7,8 @@
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="4_5q0ia"]
 [ext_resource type="FontFile" uid="uid://betb5ntkxttgh" path="res://assets/fonts/Chicago.ttf" id="5_o8p77"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqc2v"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqc2v"]
+texture = ExtResource("2_o3t6x")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q0ia"]
 atlas = ExtResource("3_o3t6x")
@@ -44,27 +39,34 @@ offset_bottom = -165.0
 [node name="Titlebar" parent="." index="0"]
 script = ExtResource("1_mori3")
 
-[node name="Image" type="Sprite2D" parent="." index="1"]
-position = Vector2(157.5, 98)
-texture = ExtResource("2_o3t6x")
+[node name="Image" type="Panel" parent="." index="1"]
+visible = false
+use_parent_material = true
+layout_mode = 0
+offset_top = 18.0
+offset_right = 315.0
+offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xqc2v")
 
-[node name="ConfirmButton" type="Button" parent="Image" index="0"]
-offset_left = 0.5
-offset_top = 22.0
-offset_right = 48.5
-offset_bottom = 29.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_xqc2v")
+[node name="ConfirmButton" type="TextureButton" parent="Image" index="0"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 108.0
+offset_right = 205.0
+offset_bottom = 142.0
+stretch_mode = 1
 
 [node name="PixelGrid" type="GridContainer" parent="Image" index="1"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -207.0
-offset_top = -57.0
-offset_right = -167.0
-offset_bottom = -17.0
+offset_left = -50.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 1
@@ -72,20 +74,22 @@ theme_override_constants/v_separation = 1
 columns = 8
 
 [node name="Scrollbar" type="VScrollBar" parent="Image" index="2"]
-offset_left = -133.0
-offset_top = -53.0
-offset_right = -119.0
-offset_bottom = 51.0
+layout_mode = 0
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 38.0
+offset_bottom = 130.0
 theme_override_styles/scroll = SubResource("StyleBoxTexture_mori3")
 theme_override_styles/grabber = SubResource("StyleBoxTexture_0etsd")
 theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_0etsd")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_0etsd")
 
 [node name="Date" type="RichTextLabel" parent="Image" index="3"]
-offset_left = -105.0
-offset_top = -73.0
-offset_right = -29.0
-offset_bottom = -41.0
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 128.0
+offset_bottom = 38.0
 theme = ExtResource("4_5q0ia")
 theme_override_fonts/normal_font = SubResource("FontVariation_bsupa")
 text = "Date"
@@ -93,10 +97,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Time" type="RichTextLabel" parent="Image" index="4"]
-offset_left = -33.5
-offset_top = -73.0
-offset_right = 42.5
-offset_bottom = -41.0
+layout_mode = 0
+offset_left = 123.5
+offset_top = 6.0
+offset_right = 199.5
+offset_bottom = 38.0
 theme = ExtResource("4_5q0ia")
 theme_override_fonts/normal_font = SubResource("FontVariation_bsupa")
 text = "Time"

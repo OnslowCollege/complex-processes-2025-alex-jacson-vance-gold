@@ -3,7 +3,7 @@ extends Panel
 @onready var date: RichTextLabel = $"../Image/Date"
 @onready var time: RichTextLabel = $"../Image/Time"
 @onready var wallpaper_rect: TextureRect = $"../../Wallpaper"
-@onready var confirm_button: Button = $"../Image/ConfirmButton"
+@onready var confirm_button: TextureButton = $"../Image/ConfirmButton"
 @onready var pixel_grid: GridContainer = $"../Image/PixelGrid"
 const GRID_SIZE = 8
 var image: Image
@@ -97,3 +97,5 @@ func _process(_delta: float) -> void:
 	var year = int(str(current_date_dict.year).substr(2))
 	date.text = str(current_date_dict.day) + " / " + str(current_date_dict.month) + " / " + str(year)
 	time.text = str(current_date_dict.hour) + " : " + str(current_date_dict.minute) + " : " + str(current_date_dict.second)
+	texture = ImageTexture.create_from_image(image)
+	confirm_button.texture_normal = texture

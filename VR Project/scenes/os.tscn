@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=25 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -6,11 +6,16 @@
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="3_nd5ct"]
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
+[ext_resource type="Shader" uid="uid://djtlbm7g6dwx7" path="res://shaders/window_load_shader.gdshader" id="5_8i7xe"]
 [ext_resource type="Script" uid="uid://ctc43f3nptelr" path="res://scripts/top_panel.gd" id="7_5hobq"]
 [ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
 [ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
 [ext_resource type="Texture2D" uid="uid://b6pnc2stgipdc" path="res://assets/textures/cursor_icons.png" id="10_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://kxtwxgk4scnf" path="res://assets/textures/ghost_window.png" id="11_y55b8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
 atlas = ExtResource("2_rxoc4")
@@ -105,7 +110,7 @@ mouse_filter = 2
 texture = ExtResource("3_fxvci")
 
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
-material = null
+material = SubResource("ShaderMaterial_cd0u5")
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
