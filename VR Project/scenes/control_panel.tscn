@@ -40,7 +40,6 @@ offset_bottom = -165.0
 script = ExtResource("1_mori3")
 
 [node name="Image" type="Panel" parent="." index="1"]
-visible = false
 use_parent_material = true
 layout_mode = 0
 offset_top = 18.0
@@ -69,8 +68,8 @@ offset_right = -10.0
 offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 1
-theme_override_constants/v_separation = 1
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 8
 
 [node name="Scrollbar" type="VScrollBar" parent="Image" index="2"]

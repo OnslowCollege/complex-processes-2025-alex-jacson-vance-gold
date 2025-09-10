@@ -35,7 +35,7 @@ func _ready():
 			btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
 			btn.remove_theme_stylebox_override("Focus")
 			btn.focus_mode = Control.FOCUS_NONE
-			btn.custom_minimum_size = Vector2(4, 4)
+			btn.custom_minimum_size = Vector2(5, 5)
 			
 
 			var color_rect = ColorRect.new()
