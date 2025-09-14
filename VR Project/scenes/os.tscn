@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
 [ext_resource type="Texture2D" uid="uid://ciqe244iiht5u" path="res://assets/textures/default-8x8-background-tile.png" id="8_7pos1"]
 [ext_resource type="Texture2D" uid="uid://b6pnc2stgipdc" path="res://assets/textures/cursor_icons.png" id="10_s2aqv"]
+[ext_resource type="PackedScene" uid="uid://bypgjanjmgshe" path="res://scenes/dropdown_button_template.tscn" id="11_cd0u5"]
 [ext_resource type="Texture2D" uid="uid://kxtwxgk4scnf" path="res://assets/textures/ghost_window.png" id="11_y55b8"]
+[ext_resource type="Texture2D" uid="uid://c4a5llh6okuix" path="res://assets/textures/dropdown-break.png" id="12_14m1s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
 shader = ExtResource("5_8i7xe")
@@ -39,21 +41,16 @@ region = Rect2(32, 12, 31, 18)
 atlas = ExtResource("4_nvlvj")
 region = Rect2(0, 12, 31, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2aqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i7xe"]
 atlas = ExtResource("2_rxoc4")
 region = Rect2(0, 0, 3, 3)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y55b8"]
-texture = SubResource("AtlasTexture_s2aqv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cd0u5"]
+texture = SubResource("AtlasTexture_8i7xe")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hobq"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2aqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y55b8"]
 atlas = ExtResource("10_s2aqv")
@@ -154,26 +151,63 @@ texture_pressed = SubResource("AtlasTexture_7pos1")
 stretch_mode = 3
 
 [node name="Panel" type="Panel" parent="TopPanel/Logo"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = 139.0
-offset_bottom = 184.0
+offset_right = 141.0
+offset_bottom = 147.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_y55b8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
-[node name="Button" type="Button" parent="TopPanel/Logo/Panel"]
-layout_mode = 0
+[node name="Content" type="VBoxContainer" parent="TopPanel/Logo/Panel"]
+layout_mode = 1
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 138.0
-offset_bottom = 21.0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_5hobq")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_s2aqv")
-text = "About the finder..."
+offset_right = 140.0
+offset_bottom = 55.0
+theme_override_constants/separation = 0
+
+[node name="AboutTheFinder" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  About the finder..."
+
+[node name="Break" type="TextureRect" parent="TopPanel/Logo/Panel/Content"]
+layout_mode = 2
+texture = ExtResource("12_14m1s")
+stretch_mode = 1
+
+[node name="Scrapbook" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Scrapbook"
+
+[node name="AlarmClock" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Alarm Clock"
+
+[node name="NotePad" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Note Pad"
+
+[node name="Calculator" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Calculator"
+
+[node name="KeyCaps" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Key Caps"
+
+[node name="ControlPanel" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Control Panel"
+
+[node name="Puzzle" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Puzzle"
+
+[node name="Monkey" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Monkey"
 
 [node name="File" type="Button" parent="TopPanel"]
 layout_mode = 1
