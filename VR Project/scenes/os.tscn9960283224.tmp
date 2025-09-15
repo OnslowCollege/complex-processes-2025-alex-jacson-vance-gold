@@ -280,7 +280,6 @@ text = "Special"
 z_index = 1
 position = Vector2(20, 22)
 sprite_frames = SubResource("SpriteFrames_5hobq")
-centered = false
 
 [node name="GhostWindow" type="Panel" parent="."]
 z_index = 1
