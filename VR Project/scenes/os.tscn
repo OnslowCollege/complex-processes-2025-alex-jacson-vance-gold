@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=26 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bypgjanjmgshe" path="res://scenes/dropdown_button_template.tscn" id="11_cd0u5"]
 [ext_resource type="Texture2D" uid="uid://kxtwxgk4scnf" path="res://assets/textures/ghost_window.png" id="11_y55b8"]
 [ext_resource type="Texture2D" uid="uid://c4a5llh6okuix" path="res://assets/textures/dropdown-break.png" id="12_14m1s"]
+[ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="15_ldvm6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
 shader = ExtResource("5_8i7xe")
@@ -136,21 +137,17 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_fxvci")
 script = ExtResource("7_5hobq")
 
 [node name="Logo" type="TextureButton" parent="TopPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
+layout_mode = 0
 offset_left = 8.0
-offset_top = -9.0
 offset_right = 39.0
-offset_bottom = 9.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 texture_normal = SubResource("AtlasTexture_nvlvj")
 texture_pressed = SubResource("AtlasTexture_7pos1")
 stretch_mode = 3
 
-[node name="LogoPanel" type="Panel" parent="TopPanel/Logo"]
+[node name="Panel" type="Panel" parent="TopPanel/Logo"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -160,7 +157,7 @@ offset_bottom = 147.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
-[node name="Content" type="VBoxContainer" parent="TopPanel/Logo/LogoPanel"]
+[node name="Content" type="VBoxContainer" parent="TopPanel/Logo/Panel"]
 layout_mode = 1
 offset_left = 1.0
 offset_top = 1.0
@@ -168,61 +165,57 @@ offset_right = 140.0
 offset_bottom = 55.0
 theme_override_constants/separation = 0
 
-[node name="AboutTheFinder" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="AboutTheFinder" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  About the finder..."
 
-[node name="Break" type="TextureRect" parent="TopPanel/Logo/LogoPanel/Content"]
+[node name="Break" type="TextureRect" parent="TopPanel/Logo/Panel/Content"]
 layout_mode = 2
 texture = ExtResource("12_14m1s")
 stretch_mode = 1
 
-[node name="Scrapbook" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="Scrapbook" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Scrapbook"
 
-[node name="AlarmClock" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="AlarmClock" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Alarm Clock"
 
-[node name="NotePad" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="NotePad" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Note Pad"
 
-[node name="Calculator" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="Calculator" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Calculator"
 
-[node name="KeyCaps" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="KeyCaps" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Key Caps"
 
-[node name="ControlPanel" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="ControlPanel" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Control Panel"
 
-[node name="Puzzle" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="Puzzle" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Puzzle"
 
-[node name="Monkey" parent="TopPanel/Logo/LogoPanel/Content" instance=ExtResource("11_cd0u5")]
+[node name="Monkey" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Monkey"
 
 [node name="File" type="Button" parent="TopPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 37.0
-offset_top = -9.0
-offset_right = 72.0
-offset_bottom = 9.0
+layout_mode = 0
+offset_left = 49.0
+offset_right = 71.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "File"
 
-[node name="FilePanel" type="Panel" parent="TopPanel/File"]
+[node name="Panel" type="Panel" parent="TopPanel/File"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -232,46 +225,34 @@ offset_bottom = 112.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
-[node name="Content" type="VBoxContainer" parent="TopPanel/File/FilePanel"]
+[node name="Content" type="VBoxContainer" parent="TopPanel/File/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Edit" type="Button" parent="TopPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -9.0
-offset_right = 110.0
-offset_bottom = 9.0
+layout_mode = 0
+offset_left = 81.0
+offset_right = 105.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "Edit"
 
 [node name="View" type="Button" parent="TopPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 114.0
-offset_top = -9.0
-offset_right = 152.0
-offset_bottom = 9.0
+layout_mode = 0
+offset_left = 115.0
+offset_right = 146.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "View"
 
 [node name="Special" type="Button" parent="TopPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 162.0
-offset_top = -9.0
-offset_right = 207.0
-offset_bottom = 9.0
+layout_mode = 0
+offset_left = 156.0
+offset_right = 201.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
 text = "Special"
@@ -291,3 +272,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8i7xe")
+
+[node name="TopBarExampleLayout" type="Sprite2D" parent="."]
+position = Vector2(110, -12)
+texture = ExtResource("15_ldvm6")

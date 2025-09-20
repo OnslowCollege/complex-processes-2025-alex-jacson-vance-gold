@@ -1,73 +1,75 @@
-extends Panel
+extends Control
 
-@onready var logo: TextureButton = $Logo
-@onready var file: Button = $File
-@onready var edit: Button = $Edit
-@onready var view: Button = $View
-@onready var special: Button = $Special
-
-@onready var logo_panel: Panel = $Logo/LogoPanel
-@onready var file_panel: Panel = $File/FilePanel
-
-var buttons: Array[BaseButton] = []
-var active_button: BaseButton = null
-var active_panel: Panel = null
-var mouse_down := false
+var buttons = []         # top-level menu buttons
+var active_button = null
+var mouse_down = false
 
 func _ready():
-	buttons = [logo, file, edit, view, special]
-
+	# collect top-level menu buttons
+	for child in get_children():
+		if child is BaseButton:
+			buttons.append(child)
+	# hide all panels initially and connect sub-buttons
 	for btn in buttons:
-		btn.toggle_mode = true
-		btn.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
-		btn.mouse_entered.connect(_on_button_mouse_entered.bind(btn))
-		btn.mouse_exited.connect(_on_button_mouse_exited.bind(btn))
+		var panel = btn.get_node_or_null("Panel")
+		if panel:
+			panel.visible = false
+			_connect_sub_buttons(panel)
 
-	for panel in [logo_panel, file_panel]:
-		panel.hide()
+func _process(delta):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		mouse_down = true
+	else:
+		if mouse_down and active_button:
+			print("Activated:", active_button.name)
+		mouse_down = false
+		_clear_active()
 
-func _input(event: InputEvent):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		mouse_down = event.pressed
-
-		if mouse_down:
-			for btn in buttons:
-				if btn.get_global_rect().has_point(event.position):
-					_set_active(btn)
-					break
-		else:
-			if active_panel:
-				active_panel.hide()
-			if active_button:
-				active_button.button_pressed = false
-			active_button = null
-			active_panel = null
-
-func _on_button_mouse_entered(btn: BaseButton):
+	# check mouse over top-level buttons
+	var mouse_pos = get_global_mouse_position()
 	if mouse_down:
-		_set_active(btn)
+		for btn in buttons:
+			var rect = btn.get_global_rect()
+			if rect.has_point(mouse_pos):
+				if active_button != btn:
+					_set_active(btn)
+				break
 
-func _on_button_mouse_exited(btn: BaseButton):
-	pass
+# --------------------------
+func _set_active(btn):
+	# hide previous panel
+	if active_button and active_button != btn:
+		var old_panel = active_button.get_node_or_null("Panel")
+		if old_panel:
+			old_panel.visible = false
 
-func _set_active(button: BaseButton):
-	if active_button == button:
-		return
+	active_button = btn
 
-	if active_button:
-		active_button.button_pressed = false
-	if active_panel:
-		active_panel.hide()
+	# show new panel
+	var panel = btn.get_node_or_null("Panel")
+	if panel:
+		panel.visible = true
 
-	active_button = button
-	active_button.button_pressed = true
+	print("Active:", active_button.name)
 
-	match button:
-		logo:
-			logo_panel.show(); active_panel = logo_panel
-		file:
-			file_panel.show(); active_panel = file_panel
-		_:
-			active_panel = null
+func _clear_active():
+	for btn in buttons:
+		var panel = btn.get_node_or_null("Panel")
+		if panel:
+			panel.visible = false
+	active_button = null
 
-	print("Active button: ", active_button.name, " | Active panel: ", active_panel)
+# --------------------------
+# recursively connect mouse_entered or pressed signals for all sub-buttons in a panel
+func _connect_sub_buttons(node):
+	for child in node.get_children():
+		if child is BaseButton:
+			# hover print
+			child.mouse_entered.connect(func():
+				print("Hovering over:", child.name))
+			# pressed -> trigger Globals.open_app
+			child.pressed.connect(func():
+				if Globals.has_method("open_app"):
+					Globals.open_app(child.name))
+		else:
+			_connect_sub_buttons(child)
