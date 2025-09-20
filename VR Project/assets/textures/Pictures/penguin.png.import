@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kxtwxgk4scnf"
-path="res://.godot/imported/ghost_window.png-16b40451ffa6452b064f33dcc762f83d.ctex"
+uid="uid://cgqk245vu64wo"
+path="res://.godot/imported/penguin.png-c42830d4756697efbf4328b6f51a593a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ghost_window.png"
-dest_files=["res://.godot/imported/ghost_window.png-16b40451ffa6452b064f33dcc762f83d.ctex"]
+source_file="res://assets/textures/Pictures/penguin.png"
+dest_files=["res://.godot/imported/penguin.png-c42830d4756697efbf4328b6f51a593a.ctex"]
 
 [params]
 

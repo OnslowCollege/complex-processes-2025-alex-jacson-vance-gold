@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vxsc32p18dsj"
-path.s3tc="res://.godot/imported/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg-1be2a3df1a567869a7f9a4c817768f45.s3tc.ctex"
-path.etc2="res://.godot/imported/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg-1be2a3df1a567869a7f9a4c817768f45.etc2.ctex"
+path.s3tc="res://.godot/imported/miku.jpg-f7b2630a12441109c2eb23026b1f604f.s3tc.ctex"
+path.etc2="res://.godot/imported/miku.jpg-f7b2630a12441109c2eb23026b1f604f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,14 +12,16 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Pictures/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
-dest_files=["res://.godot/imported/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg-1be2a3df1a567869a7f9a4c817768f45.s3tc.ctex", "res://.godot/imported/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg-1be2a3df1a567869a7f9a4c817768f45.etc2.ctex"]
+source_file="res://assets/textures/Pictures/miku.jpg"
+dest_files=["res://.godot/imported/miku.jpg-f7b2630a12441109c2eb23026b1f604f.s3tc.ctex", "res://.godot/imported/miku.jpg-f7b2630a12441109c2eb23026b1f604f.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -27,6 +29,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
