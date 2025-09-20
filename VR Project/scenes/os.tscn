@@ -86,6 +86,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2aqv")
 
+[node name="TopBarExampleLayout" type="Sprite2D" parent="."]
+position = Vector2(110, -12)
+texture = ExtResource("15_ldvm6")
+
 [node name="Wallpaper" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -119,6 +123,7 @@ offset_right = 498.0
 offset_bottom = 265.0
 grow_horizontal = 1
 grow_vertical = 1
+app = "ControlPanel"
 
 [node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
 layout_mode = 1
@@ -143,6 +148,7 @@ offset_right = 39.0
 offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
+toggle_mode = true
 texture_normal = SubResource("AtlasTexture_nvlvj")
 texture_pressed = SubResource("AtlasTexture_7pos1")
 stretch_mode = 3
@@ -168,6 +174,7 @@ theme_override_constants/separation = 0
 [node name="AboutTheFinder" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  About the finder..."
+connected_app = "About"
 
 [node name="Break" type="TextureRect" parent="TopPanel/Logo/Panel/Content"]
 layout_mode = 2
@@ -177,34 +184,42 @@ stretch_mode = 1
 [node name="Scrapbook" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Scrapbook"
+connected_app = "Scrapbook"
 
 [node name="AlarmClock" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Alarm Clock"
+connected_app = "AlarmClock"
 
 [node name="NotePad" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Note Pad"
+connected_app = "NotePad"
 
 [node name="Calculator" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Calculator"
+connected_app = "Calculator"
 
 [node name="KeyCaps" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Key Caps"
+connected_app = "KeyCaps"
 
 [node name="ControlPanel" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Control Panel"
+connected_app = "ControlPanel"
 
 [node name="Puzzle" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Puzzle"
+connected_app = "Puzzle"
 
 [node name="Monkey" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Monkey"
+connected_app = "Monkey"
 
 [node name="File" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -213,9 +228,87 @@ offset_right = 71.0
 offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
+toggle_mode = true
 text = "File"
 
 [node name="Panel" type="Panel" parent="TopPanel/File"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 112.0
+offset_bottom = 148.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
+
+[node name="Content" type="VBoxContainer" parent="TopPanel/File/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Open" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Open"
+
+[node name="Duplicate" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Duplicate"
+
+[node name="GetInfo" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Get Info"
+
+[node name="PutBack" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Put Back"
+
+[node name="Break" type="TextureRect" parent="TopPanel/File/Panel/Content"]
+layout_mode = 2
+texture = ExtResource("12_14m1s")
+stretch_mode = 1
+
+[node name="Close" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Close"
+
+[node name="CloseAll" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Close All"
+
+[node name="Print" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Print"
+
+[node name="Break2" type="TextureRect" parent="TopPanel/File/Panel/Content"]
+layout_mode = 2
+texture = ExtResource("12_14m1s")
+stretch_mode = 1
+
+[node name="Eject" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+text = "  Eject"
+
+[node name="Edit" type="Button" parent="TopPanel"]
+layout_mode = 0
+offset_left = 81.0
+offset_right = 105.0
+offset_bottom = 19.0
+grow_vertical = 2
+theme = ExtResource("3_nd5ct")
+toggle_mode = true
+text = "Edit"
+
+[node name="Panel" type="Panel" parent="TopPanel/Edit"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -225,19 +318,10 @@ offset_bottom = 112.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
-[node name="Content" type="VBoxContainer" parent="TopPanel/File/Panel"]
+[node name="Content" type="VBoxContainer" parent="TopPanel/Edit/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Edit" type="Button" parent="TopPanel"]
-layout_mode = 0
-offset_left = 81.0
-offset_right = 105.0
-offset_bottom = 19.0
-grow_vertical = 2
-theme = ExtResource("3_nd5ct")
-text = "Edit"
 
 [node name="View" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -246,7 +330,24 @@ offset_right = 146.0
 offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
+toggle_mode = true
 text = "View"
+
+[node name="Panel" type="Panel" parent="TopPanel/View"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 112.0
+offset_bottom = 112.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
+
+[node name="Content" type="VBoxContainer" parent="TopPanel/View/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Special" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -255,7 +356,24 @@ offset_right = 201.0
 offset_bottom = 19.0
 grow_vertical = 2
 theme = ExtResource("3_nd5ct")
+toggle_mode = true
 text = "Special"
+
+[node name="Panel" type="Panel" parent="TopPanel/Special"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 112.0
+offset_bottom = 112.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
+
+[node name="Content" type="VBoxContainer" parent="TopPanel/Special/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -273,6 +391,8 @@ offset_bottom = 32.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8i7xe")
 
-[node name="TopBarExampleLayout" type="Sprite2D" parent="."]
-position = Vector2(110, -12)
-texture = ExtResource("15_ldvm6")
+[connection signal="toggled" from="TopPanel/Logo" to="TopPanel" method="_on_logo_toggled"]
+[connection signal="toggled" from="TopPanel/File" to="TopPanel" method="_on_file_toggled"]
+[connection signal="toggled" from="TopPanel/Edit" to="TopPanel" method="_on_edit_toggled"]
+[connection signal="toggled" from="TopPanel/View" to="TopPanel" method="_on_view_toggled"]
+[connection signal="toggled" from="TopPanel/Special" to="TopPanel" method="_on_special_toggled"]

@@ -1,75 +1,84 @@
 extends Control
 
-var buttons = []         # top-level menu buttons
-var active_button = null
-var mouse_down = false
+@onready var logo: TextureButton = $Logo
+@onready var file: Button = $File
+@onready var edit: Button = $Edit
+@onready var view: Button = $View
+@onready var special: Button = $Special
+
+var panels: Dictionary = {}        # maps buttons → panels
+var current: BaseButton = null
 
 func _ready():
-	# collect top-level menu buttons
-	for child in get_children():
-		if child is BaseButton:
-			buttons.append(child)
-	# hide all panels initially and connect sub-buttons
-	for btn in buttons:
+	# Collect panels dynamically (if they exist under the button)
+	for btn in [logo, file, edit, view, special]:
 		var panel = btn.get_node_or_null("Panel")
 		if panel:
-			panel.visible = false
-			_connect_sub_buttons(panel)
+			panels[btn] = panel
+			panel.hide() # hide at startup
 
-func _process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		mouse_down = true
+# --------------------------
+# Toggle handlers
+func _on_logo_toggled(toggled_on: bool) -> void:
+	_handle_toggle(logo, toggled_on)
+
+func _on_file_toggled(toggled_on: bool) -> void:
+	_handle_toggle(file, toggled_on)
+
+func _on_edit_toggled(toggled_on: bool) -> void:
+	_handle_toggle(edit, toggled_on)
+
+func _on_view_toggled(toggled_on: bool) -> void:
+	_handle_toggle(view, toggled_on)
+
+func _on_special_toggled(toggled_on: bool) -> void:
+	_handle_toggle(special, toggled_on)
+
+# --------------------------
+func _handle_toggle(btn: BaseButton, toggled_on: bool) -> void:
+	if toggled_on:
+		reset_panels(btn)
+		if btn in panels:
+			panels[btn].show()
+		current = btn
 	else:
-		if mouse_down and active_button:
-			print("Activated:", active_button.name)
-		mouse_down = false
-		_clear_active()
+		if btn in panels:
+			panels[btn].hide()
+		current = null
 
-	# check mouse over top-level buttons
-	var mouse_pos = get_global_mouse_position()
-	if mouse_down:
-		for btn in buttons:
-			var rect = btn.get_global_rect()
-			if rect.has_point(mouse_pos):
-				if active_button != btn:
-					_set_active(btn)
+func reset_panels(new_btn: BaseButton) -> void:
+	# hide all panels
+	for panel in panels.values():
+		panel.hide()
+
+	# untoggle all buttons except the one just pressed
+	for btn in panels.keys():
+		if btn != new_btn:
+			btn.button_pressed = false
+
+# --------------------------
+# Close panels when clicking outside
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var mouse_pos = get_global_mouse_position()
+
+		var clicked_inside := false
+
+		# Check if mouse is over a button or its panel
+		for btn in panels.keys():
+			if btn.get_global_rect().has_point(mouse_pos):
+				clicked_inside = true
+				break
+			if panels[btn].visible and panels[btn].get_global_rect().has_point(mouse_pos):
+				clicked_inside = true
 				break
 
-# --------------------------
-func _set_active(btn):
-	# hide previous panel
-	if active_button and active_button != btn:
-		var old_panel = active_button.get_node_or_null("Panel")
-		if old_panel:
-			old_panel.visible = false
+		# If not inside any button/panel → close everything
+		if not clicked_inside:
+			_clear_all()
 
-	active_button = btn
-
-	# show new panel
-	var panel = btn.get_node_or_null("Panel")
-	if panel:
-		panel.visible = true
-
-	print("Active:", active_button.name)
-
-func _clear_active():
-	for btn in buttons:
-		var panel = btn.get_node_or_null("Panel")
-		if panel:
-			panel.visible = false
-	active_button = null
-
-# --------------------------
-# recursively connect mouse_entered or pressed signals for all sub-buttons in a panel
-func _connect_sub_buttons(node):
-	for child in node.get_children():
-		if child is BaseButton:
-			# hover print
-			child.mouse_entered.connect(func():
-				print("Hovering over:", child.name))
-			# pressed -> trigger Globals.open_app
-			child.pressed.connect(func():
-				if Globals.has_method("open_app"):
-					Globals.open_app(child.name))
-		else:
-			_connect_sub_buttons(child)
+func _clear_all() -> void:
+	for btn in panels.keys():
+		btn.button_pressed = false
+		panels[btn].hide()
+	current = null

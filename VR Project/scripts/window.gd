@@ -12,12 +12,18 @@ var closed = false
 @onready var ghost_window: Panel = $"../GhostWindow"
 @onready var load_animation: AnimationPlayer = $LoadAnimation
 
+@export var app: String = ""
+
 # TitleBar dragging code.
 func _ready():
 	title_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	title_bar.connect("gui_input", _on_title_bar_gui_input)
 
 	ghost_window.visible = false
+	
+	Globals.open_app_signal.connect(_on_open_app)
+
+
 
 func _on_title_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -44,3 +50,22 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 func _close_window() -> void:
 	hide()
 	closed = true
+
+func _on_open_app(app_name: String):
+	if app == app_name:
+		open_app()
+		print("Open the Notes app")
+	elif app_name == "Calculator":
+		print("Open the Calculator app")
+	else:
+		print("Unknown app:", app_name)
+
+func open_app():
+	self.show()
+	load_animation.play("load_window")
+	ghost_window.visible = false
+	move_to_front()
+
+
+func _on_close_button_pressed() -> void:
+	self.hide()
