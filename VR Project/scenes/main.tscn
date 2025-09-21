@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://byuayh3u41ox0" path="res://scenes/Picture.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://c4xoum6tgvhm7" path="res://scenes/pen.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b480lyr2mkuxs" path="res://scenes/pen_2.tscn" id="17_muem4"]
-[ext_resource type="PackedScene" uid="uid://dmdhhx443xnqj" path="res://assets/models/stickynote1.blend" id="18_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://cx46t357q5dly" path="res://assets/models/stickynote2.blend" id="19_yc10j"]
-[ext_resource type="PackedScene" uid="uid://dmqmbq8kuov04" path="res://assets/models/stickynote3.blend" id="20_jscy8"]
+[ext_resource type="PackedScene" uid="uid://d2bedjr2tvr1b" path="res://scenes/stickynote_red.tscn" id="20_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://b77ekfjsuunyh" path="res://scenes/stickynote_blue.tscn" id="20_yc10j"]
+[ext_resource type="PackedScene" uid="uid://cwto5xx2ulcon" path="res://scenes/stickynote_yellow.tscn" id="21_jscy8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
 shading_mode = 0
@@ -178,14 +178,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360419, 1.25061, -0.523309
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165165, 1.86009, -0.949055)
 
-[node name="stickynote1" parent="." instance=ExtResource("18_gqmmt")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.534997, 1.63213, -0.947134)
+[node name="stickynotered" parent="." instance=ExtResource("20_gqmmt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.54034877, 1.6005741, -0.9483921)
 
-[node name="stickynote2" parent="." instance=ExtResource("19_yc10j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.385049, 1.45192, -0.947134)
+[node name="stickynoteblue" parent="." instance=ExtResource("20_yc10j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.34589905, 1.7386698, -0.94839215)
 
-[node name="stickynote3" parent="." instance=ExtResource("20_jscy8")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.374994, 1.77046, -0.947134)
+[node name="stickynoteyellow" parent="." instance=ExtResource("21_jscy8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.38503808, 1.4584891, -0.9483921)
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]

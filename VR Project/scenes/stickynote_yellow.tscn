@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwto5xx2ulcon"]
+
+[ext_resource type="PackedScene" uid="uid://dmdhhx443xnqj" path="res://assets/models/stickynote.blend" id="1_rpviv"]
+[ext_resource type="Texture2D" uid="uid://ci03vyvwxaqpk" path="res://assets/models/notetextures/texture1.png" id="2_2l023"]
+[ext_resource type="Script" uid="uid://dwg260x7p1d4r" path="res://scripts/sticky_note.gd" id="3_xvawf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpviv"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4qec"]
+transparency = 1
+albedo_texture = ExtResource("2_2l023")
+
+[node name="stickynoteyellow" instance=ExtResource("1_rpviv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rpviv")
+
+[node name="Cube_001" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j4qec")
+script = ExtResource("3_xvawf")

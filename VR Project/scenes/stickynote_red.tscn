@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2bedjr2tvr1b"]
+
+[ext_resource type="PackedScene" uid="uid://dmdhhx443xnqj" path="res://assets/models/stickynote.blend" id="1_gi7gm"]
+[ext_resource type="Texture2D" uid="uid://ci03vyvwxaqpk" path="res://assets/models/notetextures/texture1.png" id="2_u61gg"]
+[ext_resource type="Script" uid="uid://dwg260x7p1d4r" path="res://scripts/sticky_note.gd" id="3_chpt0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4qec"]
+transparency = 1
+albedo_texture = ExtResource("2_u61gg")
+
+[node name="stickynotered" instance=ExtResource("1_gi7gm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Cube_001" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j4qec")
+script = ExtResource("3_chpt0")

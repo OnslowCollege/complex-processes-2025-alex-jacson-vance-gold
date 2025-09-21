@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck4f8hgm234ii"]
-
-[ext_resource type="PackedScene" uid="uid://cx46t357q5dly" path="res://assets/models/stickynote2.blend" id="1_qr7go"]
-
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(0.66949, 0, 0, 0, 0.66949, 0, 0, 0, 0.66949, 0, 0, 0)
-
-[node name="stickynote2" parent="." instance=ExtResource("1_qr7go")]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmqmbq8kuov04"
-path="res://.godot/imported/stickynote3.blend-761bc5f3aa253eb07daed905e4920a1f.scn"
+uid="uid://dmdhhx443xnqj"
+path="res://.godot/imported/stickynote.blend-56f2d271a7c754b64680ea9d7a0ad8a7.scn"
 
 [deps]
 
-source_file="res://assets/models/stickynote3.blend"
-dest_files=["res://.godot/imported/stickynote3.blend-761bc5f3aa253eb07daed905e4920a1f.scn"]
+source_file="res://assets/models/stickynote.blend"
+dest_files=["res://.godot/imported/stickynote.blend-56f2d271a7c754b64680ea9d7a0ad8a7.scn"]
 
 [params]
 
