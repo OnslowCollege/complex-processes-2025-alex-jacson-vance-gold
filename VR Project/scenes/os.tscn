@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=25 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
 [ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="3_nd5ct"]
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
-[ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="4_yp4ya"]
 [ext_resource type="Shader" uid="uid://djtlbm7g6dwx7" path="res://shaders/window_load_shader.gdshader" id="5_8i7xe"]
 [ext_resource type="Script" uid="uid://ctc43f3nptelr" path="res://scripts/top_panel.gd" id="7_5hobq"]
 [ext_resource type="PackedScene" uid="uid://cv2jkukdgalxk" path="res://scenes/control_panel.tscn" id="8_5hobq"]
@@ -112,6 +111,7 @@ mouse_filter = 2
 texture = ExtResource("3_fxvci")
 
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+visible = false
 material = SubResource("ShaderMaterial_cd0u5")
 layout_mode = 0
 anchors_preset = 0
@@ -124,13 +124,6 @@ offset_bottom = 265.0
 grow_horizontal = 1
 grow_vertical = 1
 app = "ControlPanel"
-
-[node name="WindowTemplate" parent="." instance=ExtResource("4_yp4ya")]
-layout_mode = 1
-offset_left = 8.0
-offset_top = 125.0
-offset_right = -352.0
-offset_bottom = -59.0
 
 [node name="TopPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -308,20 +301,72 @@ toggle_mode = true
 text = "Edit"
 
 [node name="Panel" type="Panel" parent="TopPanel/Edit"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = 112.0
-offset_bottom = 112.0
+offset_right = 116.0
+offset_bottom = 134.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
 [node name="Content" type="VBoxContainer" parent="TopPanel/Edit/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Undo" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Undo"
+
+[node name="Break" type="TextureRect" parent="TopPanel/Edit/Panel/Content"]
+layout_mode = 2
+texture = ExtResource("12_14m1s")
+stretch_mode = 1
+
+[node name="Cut" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Cut"
+
+[node name="Copy" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Copy"
+
+[node name="Paste" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Paste"
+
+[node name="Clear" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Clear"
+
+[node name="SelectAll" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Select All"
+
+[node name="Break2" type="TextureRect" parent="TopPanel/Edit/Panel/Content"]
+layout_mode = 2
+texture = ExtResource("12_14m1s")
+stretch_mode = 1
+
+[node name="ShowClipboard" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Show Clipboard"
 
 [node name="View" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -334,20 +379,52 @@ toggle_mode = true
 text = "View"
 
 [node name="Panel" type="Panel" parent="TopPanel/View"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = 112.0
-offset_bottom = 112.0
+offset_right = 72.0
+offset_bottom = 82.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
 [node name="Content" type="VBoxContainer" parent="TopPanel/View/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="ByIcon" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  by Icon"
+
+[node name="ByName" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  by Name"
+
+[node name="ByDate" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  by Date"
+
+[node name="BySize" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  by Size"
+
+[node name="ByKind" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  by Kind"
 
 [node name="Special" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -360,20 +437,38 @@ toggle_mode = true
 text = "Special"
 
 [node name="Panel" type="Panel" parent="TopPanel/Special"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = 112.0
-offset_bottom = 112.0
+offset_right = 98.0
+offset_bottom = 48.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
 [node name="Content" type="VBoxContainer" parent="TopPanel/Special/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="CleanUp" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Clean Up"
+
+[node name="EmptyTrash" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Empty Trash"
+
+[node name="EraseDisk" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+text = "  Erase Disk"
 
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
 z_index = 1
