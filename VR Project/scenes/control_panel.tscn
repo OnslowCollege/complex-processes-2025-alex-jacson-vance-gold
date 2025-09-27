@@ -39,6 +39,9 @@ offset_bottom = -165.0
 [node name="Titlebar" parent="." index="0"]
 script = ExtResource("1_mori3")
 
+[node name="Title" parent="Titlebar" index="1"]
+text = "Control Panel"
+
 [node name="Image" type="Panel" parent="." index="1"]
 use_parent_material = true
 layout_mode = 0
