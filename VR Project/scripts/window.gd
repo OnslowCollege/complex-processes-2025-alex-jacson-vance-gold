@@ -22,11 +22,13 @@ func _ready():
 	ghost_window.visible = false
 	
 	Globals.open_app_signal.connect(_on_open_app)
-
+	Globals.app_focus_changed.connect(_on_app_focus_changed)
 
 
 func _on_title_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		
+		Globals.change_app_focus(app)
 		
 		if event.pressed:
 			dragging = true
@@ -60,12 +62,17 @@ func _on_open_app(app_name: String):
 	else:
 		print("Unknown app:", app_name)
 
+func _on_app_focus_changed(app_name: String):
+	if app == app_name:
+		pass
+	else:
+		pass
+
 func open_app():
 	self.show()
 	load_animation.play("load_window")
 	ghost_window.visible = false
 	move_to_front()
-
 
 func _on_close_button_pressed() -> void:
 	self.hide()
