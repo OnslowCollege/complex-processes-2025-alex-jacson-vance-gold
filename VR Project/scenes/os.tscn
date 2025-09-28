@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=38 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -85,6 +85,10 @@ shader_parameter/reveal_amount = 1.0
 shader = ExtResource("5_8i7xe")
 shader_parameter/reveal_amount = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3361g"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3361g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8u01"]
@@ -161,7 +165,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_right = 141.0
-offset_bottom = 147.0
+offset_bottom = 130.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cd0u5")
 
@@ -217,11 +221,6 @@ connected_app = "ControlPanel"
 layout_mode = 2
 text = "  Puzzle"
 connected_app = "Puzzle"
-
-[node name="Monkey" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
-layout_mode = 2
-text = "  Monkey"
-connected_app = "Monkey"
 
 [node name="File" type="Button" parent="TopPanel"]
 layout_mode = 0
@@ -480,6 +479,7 @@ theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
 text = "  Erase Disk"
 
 [node name="PixelCurve" type="TextureRect" parent="."]
+visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -594,6 +594,7 @@ text = "Note Pad"
 
 [node name="Calculator" parent="." instance=ExtResource("16_joci4")]
 visible = false
+material = SubResource("ShaderMaterial_3361g")
 layout_mode = 1
 offset_left = 198.14664
 offset_top = 101.0
