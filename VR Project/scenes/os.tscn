@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=31 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -17,10 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="15_ldvm6"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="16_joci4"]
 [ext_resource type="Texture2D" uid="uid://besarrb4ncqmi" path="res://assets/textures/scrapbook.png" id="17_bp7kc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
-shader = ExtResource("5_8i7xe")
-shader_parameter/reveal_amount = 1.0
+[ext_resource type="Texture2D" uid="uid://clepitqxri55r" path="res://assets/textures/NotePad.png" id="18_nto4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
 atlas = ExtResource("2_rxoc4")
@@ -79,6 +76,18 @@ texture_margin_bottom = 1.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bp7kc"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nto4e"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
+
 [node name="OS" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -101,21 +110,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_7pos1")
 stretch_mode = 1
-
-[node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
-visible = false
-material = SubResource("ShaderMaterial_cd0u5")
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 183.0
-offset_top = 86.0
-offset_right = 498.0
-offset_bottom = 265.0
-grow_horizontal = 1
-grow_vertical = 1
-app = "ControlPanel"
 
 [node name="TopPanel" type="Panel" parent="."]
 top_level = true
@@ -511,6 +505,7 @@ texture_normal = ExtResource("15_joci4")
 
 [node name="ScrapBook" parent="." instance=ExtResource("16_joci4")]
 visible = false
+material = SubResource("ShaderMaterial_bp7kc")
 layout_mode = 1
 offset_left = 72.0
 offset_top = 48.0
@@ -534,6 +529,8 @@ texture = ExtResource("17_bp7kc")
 expand_mode = 1
 
 [node name="AlarmClock" parent="." instance=ExtResource("16_joci4")]
+visible = false
+material = SubResource("ShaderMaterial_nto4e")
 layout_mode = 1
 offset_left = 346.0
 offset_top = 40.0
@@ -545,6 +542,49 @@ app = "AlarmClock"
 offset_left = -41.0
 offset_right = 61.0
 
+[node name="NotePad" parent="." instance=ExtResource("16_joci4")]
+visible = false
+layout_mode = 1
+offset_left = 130.62756
+offset_top = 88.0
+offset_right = -158.0
+offset_bottom = -7.0
+app = "NotePad"
+
+[node name="Title" parent="NotePad/Titlebar" index="1"]
+offset_left = -33.31378
+offset_right = 33.31378
+text = "Note Pad"
+
+[node name="Content" parent="NotePad" index="1"]
+anchors_preset = -1
+anchor_top = 0.07700001
+offset_top = -0.019001007
+
+[node name="TextureRect" type="TextureRect" parent="NotePad/Content" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.37243652
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_nto4e")
+
+[node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+material = SubResource("ShaderMaterial_cd0u5")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 86.0
+offset_right = 498.0
+offset_bottom = 265.0
+grow_horizontal = 1
+grow_vertical = 1
+app = "ControlPanel"
+
 [connection signal="toggled" from="TopPanel/Logo" to="TopPanel" method="_on_logo_toggled"]
 [connection signal="toggled" from="TopPanel/File" to="TopPanel" method="_on_file_toggled"]
 [connection signal="toggled" from="TopPanel/Edit" to="TopPanel" method="_on_edit_toggled"]
@@ -553,3 +593,4 @@ offset_right = 61.0
 
 [editable path="ScrapBook"]
 [editable path="AlarmClock"]
+[editable path="NotePad"]

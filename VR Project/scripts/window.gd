@@ -67,10 +67,10 @@ func _on_open_app(app_name: String):
 
 func _on_app_focus_changed(app_name: String):
 	var current = title_bar.get_theme_stylebox("panel").duplicate() as StyleBoxTexture
-	if app == app_name:
-		current.texture = TITLE_BAR_FOCUSED
 	if app == "AlarmClock":
 		current.texture = TITLE_BAR_UNFOCUSED
+	elif app == app_name:
+		current.texture = TITLE_BAR_FOCUSED
 	else:
 		current.texture = TITLE_BAR_UNFOCUSED
 	title_bar.add_theme_stylebox_override("panel", current)
