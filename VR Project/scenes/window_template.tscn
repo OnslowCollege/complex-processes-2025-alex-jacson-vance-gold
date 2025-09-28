@@ -147,7 +147,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Titlebar" type="Panel" parent="."]
-use_parent_material = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

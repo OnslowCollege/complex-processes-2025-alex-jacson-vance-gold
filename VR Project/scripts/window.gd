@@ -59,16 +59,16 @@ func _close_window() -> void:
 func _on_open_app(app_name: String):
 	if app == app_name:
 		open_app()
-		print("Open the Notes app")
-	elif app_name == "Calculator":
-		print("Open the Calculator app")
+		Globals.change_app_focus(app)
 	else:
-		print("Unknown app:", app_name)
+		pass
 
 func _on_app_focus_changed(app_name: String):
 	var current = title_bar.get_theme_stylebox("panel").duplicate() as StyleBoxTexture
 	if app == "AlarmClock":
 		current.texture = TITLE_BAR_UNFOCUSED
+	if app == "Calculator":
+		pass
 	elif app == app_name:
 		current.texture = TITLE_BAR_FOCUSED
 	else:

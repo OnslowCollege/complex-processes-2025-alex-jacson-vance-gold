@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=37 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="15_ldvm6"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="16_joci4"]
 [ext_resource type="Texture2D" uid="uid://besarrb4ncqmi" path="res://assets/textures/scrapbook.png" id="17_bp7kc"]
+[ext_resource type="Texture2D" uid="uid://clsgiopcsge26" path="res://assets/textures/calculator.png" id="18_3361g"]
 [ext_resource type="Texture2D" uid="uid://clepitqxri55r" path="res://assets/textures/NotePad.png" id="18_nto4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
@@ -83,6 +84,26 @@ shader_parameter/reveal_amount = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nto4e"]
 shader = ExtResource("5_8i7xe")
 shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3361g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8u01"]
+atlas = ExtResource("18_3361g")
+region = Rect2(0, 0, 106, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ky4p7"]
+texture = SubResource("AtlasTexture_o8u01")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3361g"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxeek"]
+atlas = ExtResource("18_3361g")
+region = Rect2(0, 20, 106, 149)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
 shader = ExtResource("5_8i7xe")
@@ -513,11 +534,6 @@ offset_right = -54.0
 offset_bottom = -16.0
 app = "Scrapbook"
 
-[node name="Title" parent="ScrapBook/Titlebar" index="1"]
-offset_left = -34.0
-offset_right = 34.0
-text = "Scrapbook"
-
 [node name="TextureRect" type="TextureRect" parent="ScrapBook/Content" index="0"]
 layout_mode = 1
 anchors_preset = 15
@@ -527,6 +543,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_bp7kc")
 expand_mode = 1
+
+[node name="Title" parent="ScrapBook/Titlebar" index="1"]
+offset_left = -34.0
+offset_right = 34.0
+text = "Scrapbook"
 
 [node name="AlarmClock" parent="." instance=ExtResource("16_joci4")]
 visible = false
@@ -551,12 +572,7 @@ offset_right = -158.0
 offset_bottom = -7.0
 app = "NotePad"
 
-[node name="Title" parent="NotePad/Titlebar" index="1"]
-offset_left = -33.31378
-offset_right = 33.31378
-text = "Note Pad"
-
-[node name="Content" parent="NotePad" index="1"]
+[node name="Content" parent="NotePad" index="0"]
 anchors_preset = -1
 anchor_top = 0.07700001
 offset_top = -0.019001007
@@ -571,7 +587,42 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_nto4e")
 
+[node name="Title" parent="NotePad/Titlebar" index="1"]
+offset_left = -33.31378
+offset_right = 33.31378
+text = "Note Pad"
+
+[node name="Calculator" parent="." instance=ExtResource("16_joci4")]
+visible = false
+layout_mode = 1
+offset_left = 198.14664
+offset_top = 101.0
+offset_right = -225.0
+offset_bottom = -73.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3361g")
+app = "Calculator"
+
+[node name="Titlebar" parent="Calculator" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxTexture_ky4p7")
+
+[node name="Title" parent="Calculator/Titlebar" index="1"]
+offset_left = -28.0
+offset_right = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3361g")
+text = "Calculator"
+
+[node name="TextureRect" type="TextureRect" parent="Calculator"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 107.0
+offset_bottom = 168.0
+texture = SubResource("AtlasTexture_mxeek")
+
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
+visible = false
 material = SubResource("ShaderMaterial_cd0u5")
 layout_mode = 0
 anchors_preset = 0
@@ -594,3 +645,4 @@ app = "ControlPanel"
 [editable path="ScrapBook"]
 [editable path="AlarmClock"]
 [editable path="NotePad"]
+[editable path="Calculator"]
