@@ -9,6 +9,7 @@
 size = Vector3(0.142822, 0.0426636, 0.20166)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3daxj"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l8pow"]
 _surfaces = [{
@@ -43,6 +44,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l8pow")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xj5p"]
+albedo_color = Color(0.67341775, 0.6048685, 0.4610108, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d7y85"]
 _surfaces = [{

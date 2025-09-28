@@ -40,6 +40,8 @@ offset_bottom = -165.0
 script = ExtResource("1_mori3")
 
 [node name="Title" parent="Titlebar" index="1"]
+offset_left = -40.5
+offset_right = 40.5
 text = "Control Panel"
 
 [node name="Image" type="Panel" parent="." index="1"]

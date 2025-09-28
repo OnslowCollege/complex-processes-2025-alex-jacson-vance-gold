@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=28 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://c4a5llh6okuix" path="res://assets/textures/dropdown-break.png" id="12_14m1s"]
 [ext_resource type="Texture2D" uid="uid://nsyquoqhti2r" path="res://assets/textures/about-mac.png" id="15_joci4"]
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="15_ldvm6"]
+[ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="16_joci4"]
+[ext_resource type="Texture2D" uid="uid://besarrb4ncqmi" path="res://assets/textures/scrapbook.png" id="17_bp7kc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
 shader = ExtResource("5_8i7xe")
@@ -100,17 +102,6 @@ grow_vertical = 2
 texture = ExtResource("8_7pos1")
 stretch_mode = 1
 
-[node name="PixelCurve" type="TextureRect" parent="."]
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_fxvci")
-
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
 visible = false
 material = SubResource("ShaderMaterial_cd0u5")
@@ -127,6 +118,8 @@ grow_vertical = 1
 app = "ControlPanel"
 
 [node name="TopPanel" type="Panel" parent="."]
+top_level = true
+z_index = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -471,6 +464,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
 text = "  Erase Disk"
 
+[node name="PixelCurve" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fxvci")
+
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
 z_index = 1
 position = Vector2(20, 22)
@@ -489,6 +493,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_8i7xe")
 
 [node name="AboutMac" type="TextureButton" parent="."]
 visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -504,8 +509,47 @@ grow_vertical = 2
 disabled = true
 texture_normal = ExtResource("15_joci4")
 
+[node name="ScrapBook" parent="." instance=ExtResource("16_joci4")]
+visible = false
+layout_mode = 1
+offset_left = 72.0
+offset_top = 48.0
+offset_right = -54.0
+offset_bottom = -16.0
+app = "Scrapbook"
+
+[node name="Title" parent="ScrapBook/Titlebar" index="1"]
+offset_left = -34.0
+offset_right = 34.0
+text = "Scrapbook"
+
+[node name="TextureRect" type="TextureRect" parent="ScrapBook/Content" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_bp7kc")
+expand_mode = 1
+
+[node name="AlarmClock" parent="." instance=ExtResource("16_joci4")]
+layout_mode = 1
+offset_left = 346.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -281.0
+app = "AlarmClock"
+
+[node name="Title" parent="AlarmClock/Titlebar" index="1"]
+offset_left = -41.0
+offset_right = 61.0
+
 [connection signal="toggled" from="TopPanel/Logo" to="TopPanel" method="_on_logo_toggled"]
 [connection signal="toggled" from="TopPanel/File" to="TopPanel" method="_on_file_toggled"]
 [connection signal="toggled" from="TopPanel/Edit" to="TopPanel" method="_on_edit_toggled"]
 [connection signal="toggled" from="TopPanel/View" to="TopPanel" method="_on_view_toggled"]
 [connection signal="toggled" from="TopPanel/Special" to="TopPanel" method="_on_special_toggled"]
+
+[editable path="ScrapBook"]
+[editable path="AlarmClock"]

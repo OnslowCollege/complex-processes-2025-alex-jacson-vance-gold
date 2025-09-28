@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqyat6o13ocbx"]
+[gd_scene load_steps=17 format=3 uid="uid://dqyat6o13ocbx"]
 
 [ext_resource type="Script" uid="uid://dbir76p8iwpu1" path="res://scripts/window.gd" id="1_chpay"]
 [ext_resource type="Shader" uid="uid://djtlbm7g6dwx7" path="res://shaders/window_load_shader.gdshader" id="1_l5wms"]
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="3_v6cgr"]
 [ext_resource type="FontFile" uid="uid://betb5ntkxttgh" path="res://assets/fonts/Chicago.ttf" id="4_l5wms"]
+[ext_resource type="Texture2D" uid="uid://cbomexpi4toe7" path="res://assets/textures/title-bar_unfocused.png" id="4_n43y8"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="5_l5wms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n43y8"]
@@ -17,18 +18,12 @@ texture_margin_top = 1.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5wms"]
-atlas = ExtResource("5_l5wms")
-region = Rect2(0, 0, 4, 3)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6cgr"]
-texture = SubResource("AtlasTexture_l5wms")
-texture_margin_left = 1.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1crbt"]
+texture = ExtResource("4_n43y8")
+texture_margin_left = 4.0
 texture_margin_top = 1.0
-texture_margin_right = 2.0
+texture_margin_right = 4.0
 texture_margin_bottom = 1.0
-expand_margin_bottom = 5.0
-region_rect = Rect2(0, 0, 4, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncxjr"]
 atlas = ExtResource("3_v6cgr")
@@ -37,6 +32,11 @@ region = Rect2(0, 0, 13, 11)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6cgr"]
 atlas = ExtResource("3_v6cgr")
 region = Rect2(14, 0, 13, 11)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n43y8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1crbt"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_n43y8"]
 resource_name = "RESET"
@@ -59,6 +59,18 @@ tracks/1/path = NodePath("Image:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Content:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -92,6 +104,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Content:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1crbt"]
 _data = {
@@ -117,7 +141,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 19.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_v6cgr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1crbt")
 
 [node name="CloseButton" type="TextureButton" parent="Titlebar"]
 layout_mode = 1
@@ -132,26 +156,44 @@ grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_ncxjr")
 texture_pressed = SubResource("AtlasTexture_v6cgr")
 
-[node name="Title" type="RichTextLabel" parent="Titlebar"]
+[node name="Title" type="Button" parent="Titlebar"]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -38.0
-offset_right = 39.0
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -8.5
+offset_right = 25.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_l5wms")
-theme_override_font_sizes/normal_font_size = 8
-text = "System Disk"
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_l5wms")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n43y8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n43y8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n43y8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1crbt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n43y8")
+disabled = true
+text = "Window"
+autowrap_mode = 1
+
+[node name="Content" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 19.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LoadAnimation" type="AnimationPlayer" parent="."]
 libraries = {

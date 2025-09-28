@@ -8,11 +8,15 @@ var closed = false
 # TitleBar onready variables.
 @onready var title_bar: Panel = $Titlebar
 @onready var close: TextureButton = $Titlebar/CloseButton
+@onready var title: Button = $Titlebar/Title
 
 @onready var ghost_window: Panel = $"../GhostWindow"
 @onready var load_animation: AnimationPlayer = $LoadAnimation
 
 @export var app: String = ""
+
+const TITLE_BAR_FOCUSED = preload("uid://c181386vkhtsr")
+const TITLE_BAR_UNFOCUSED = preload("uid://cbomexpi4toe7")
 
 # TitleBar dragging code.
 func _ready():
@@ -28,8 +32,6 @@ func _ready():
 func _on_title_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		
-		Globals.change_app_focus(app)
-		
 		if event.pressed:
 			dragging = true
 			drag_offset = event.position
@@ -42,6 +44,7 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 			dragging = false
 			if ghost_window.visible:
 					load_animation.play("load_window")
+					Globals.change_app_focus(app)
 					global_position = ghost_window.global_position
 					ghost_window.visible = false
 					move_to_front()
@@ -63,11 +66,14 @@ func _on_open_app(app_name: String):
 		print("Unknown app:", app_name)
 
 func _on_app_focus_changed(app_name: String):
+	var current = title_bar.get_theme_stylebox("panel").duplicate() as StyleBoxTexture
 	if app == app_name:
-		pass
+		current.texture = TITLE_BAR_FOCUSED
+	if app == "AlarmClock":
+		current.texture = TITLE_BAR_UNFOCUSED
 	else:
-		pass
-
+		current.texture = TITLE_BAR_UNFOCUSED
+	title_bar.add_theme_stylebox_override("panel", current)
 func open_app():
 	self.show()
 	load_animation.play("load_window")
@@ -76,3 +82,9 @@ func open_app():
 
 func _on_close_button_pressed() -> void:
 	self.hide()
+
+
+func _process(delta: float) -> void:
+	if app == "AlarmClock":
+		var current_date_dict = Time.get_datetime_dict_from_system()
+		title.text = str(current_date_dict.hour) + " : " + str(current_date_dict.minute) + " : " + str(current_date_dict.second)

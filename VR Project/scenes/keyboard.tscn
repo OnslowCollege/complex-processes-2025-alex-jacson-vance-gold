@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ktncf3vm3cta" path="res://assets/models/textures/command_texture.png" id="2_kjofl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_204dq"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hsltp"]
 _surfaces = [{
@@ -39,6 +40,7 @@ shadow_mesh = SubResource("ArrayMesh_hsltp")
 size = Vector3(3.545, 0.210453, 1.61195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xj5p"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d7y85"]
 _surfaces = [{
@@ -71,6 +73,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d7y85")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e24mc"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v2a0s"]
 _surfaces = [{
@@ -103,6 +106,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v2a0s")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nluu"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p2f5m"]
 _surfaces = [{
@@ -135,6 +139,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p2f5m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bbit"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fxkep"]
 _surfaces = [{
@@ -167,6 +172,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fxkep")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44yvj"]
+albedo_color = Color(0.8745098, 0.827451, 0.7294118, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p3ehu"]
 _surfaces = [{
