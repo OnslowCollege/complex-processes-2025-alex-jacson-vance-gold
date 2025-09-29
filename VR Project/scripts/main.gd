@@ -16,6 +16,14 @@ func _ready() -> void:
 	# Make sure the SubViewport actually takes input and keeps updating.
 	subviewport.gui_disable_input = false
 	subviewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	
+	# Store the initial Y rotation offset of the XR origin
+	initial_y_rotation = xr_origin.rotation.y
+
+	var xr_interface = XRServer.find_interface("OpenXR")
+	if xr_interface:
+		xr_interface.pose_recentered.connect(_on_pose_recentered)
+	
 func _on_mouse_clicked(pickable: Variant) -> void:
 	# Start hold at current cursor position
 	var pos := cursor.position
@@ -99,3 +107,16 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		# Forward it to the sub-viewport
 		subviewport.push_input(event)
+
+
+# -------------------------        RESET POSITION OF PLAYER        ------------------------- # 
+
+@onready var xr_origin: XROrigin3D = $XROrigin3D
+var initial_y_rotation: float
+
+func _on_pose_recentered() -> void:
+	# Reset orientation to preserve initial Y rotation
+	var origin_transform = xr_origin.transform
+	origin_transform.basis = Basis(Vector3.UP, initial_y_rotation)
+	xr_origin.transform = origin_transform
+	print("Forward orientation reset with initial Y rotation preserved")
