@@ -1,9 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=49 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
 [ext_resource type="Texture2D" uid="uid://d1mlnj307q5um" path="res://assets/textures/screen-pixel-curve.png" id="3_fxvci"]
 [ext_resource type="Theme" uid="uid://bn2y15cuc352i" path="res://assets/themes/top_bar.tres" id="3_nd5ct"]
+[ext_resource type="Texture2D" uid="uid://cjbgx3o4lb08a" path="res://assets/textures/trashbin-icon.png" id="4_f5ig5"]
+[ext_resource type="Texture2D" uid="uid://cxii076tmxloo" path="res://assets/textures/system-disk-icon.png" id="4_f41mu"]
 [ext_resource type="Texture2D" uid="uid://0xk8l0c470gp" path="res://assets/textures/icons.png" id="4_nvlvj"]
 [ext_resource type="Shader" uid="uid://djtlbm7g6dwx7" path="res://shaders/window_load_shader.gdshader" id="5_8i7xe"]
 [ext_resource type="Script" uid="uid://ctc43f3nptelr" path="res://scripts/top_panel.gd" id="7_5hobq"]
@@ -162,6 +164,33 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_7pos1")
 stretch_mode = 1
+
+[node name="SystemDisk" type="TextureButton" parent="Wallpaper"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = 40.0
+offset_right = -8.0
+offset_bottom = 84.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_f41mu")
+
+[node name="Trashbin" type="TextureButton" parent="Wallpaper"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -68.0
+offset_right = -15.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("4_f5ig5")
 
 [node name="TopPanel" type="Panel" parent="."]
 top_level = true
