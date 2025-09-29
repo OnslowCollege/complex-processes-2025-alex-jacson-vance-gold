@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=52 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://clsgiopcsge26" path="res://assets/textures/calculator.png" id="18_3361g"]
 [ext_resource type="Texture2D" uid="uid://clepitqxri55r" path="res://assets/textures/NotePad.png" id="18_nto4e"]
 [ext_resource type="Texture2D" uid="uid://j4t38v2185eu" path="res://assets/textures/keycaps.png" id="20_o8u01"]
+[ext_resource type="FontFile" uid="uid://ds3aslnmbwtej" path="res://assets/fonts/new-york.ttf" id="21_h80ec"]
 [ext_resource type="Texture2D" uid="uid://bi2fgxfguola8" path="res://assets/textures/puzzle.png" id="22_ky4p7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
@@ -89,6 +90,10 @@ shader_parameter/reveal_amount = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nto4e"]
 shader = ExtResource("5_8i7xe")
 shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnbus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx0lb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3361g"]
 shader = ExtResource("5_8i7xe")
@@ -630,7 +635,6 @@ offset_left = -41.0
 offset_right = 61.0
 
 [node name="NotePad" parent="." instance=ExtResource("16_joci4")]
-visible = false
 layout_mode = 1
 offset_left = 130.62756
 offset_top = 88.0
@@ -652,6 +656,28 @@ offset_right = -0.37243652
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_nto4e")
+
+[node name="LineEdit" type="TextEdit" parent="NotePad/Content/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.372437
+offset_top = 8.0
+offset_right = -5.6275635
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_h80ec")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wnbus")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bx0lb")
+text = "Keep up to eight pages of notes in the Note Pad. Click on the dog-ear to turn to the next following page. Click in the lower left corner to turn to the next previous page."
+wrap_mode = 1
+caret_blink = true
 
 [node name="Title" parent="NotePad/Titlebar" index="1"]
 offset_left = -33.31378
