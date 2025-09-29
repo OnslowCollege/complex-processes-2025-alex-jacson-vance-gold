@@ -15,8 +15,8 @@ var closed = false
 
 @export var app: String = ""
 
-const TITLE_BAR_FOCUSED = preload("uid://c181386vkhtsr")
-const TITLE_BAR_UNFOCUSED = preload("uid://cbomexpi4toe7")
+@export var TITLE_BAR_FOCUSED = preload("uid://c181386vkhtsr")
+@export var TITLE_BAR_UNFOCUSED = preload("uid://cbomexpi4toe7")
 
 # TitleBar dragging code.
 func _ready():
@@ -67,12 +67,14 @@ func _on_app_focus_changed(app_name: String):
 	var current = title_bar.get_theme_stylebox("panel").duplicate() as StyleBoxTexture
 	if app == "AlarmClock":
 		current.texture = TITLE_BAR_UNFOCUSED
-	if app == "Calculator":
+	if app == "Calculator" or app == "Puzzle":
 		pass
 	elif app == app_name:
 		current.texture = TITLE_BAR_FOCUSED
+		close.visible = true
 	else:
 		current.texture = TITLE_BAR_UNFOCUSED
+		close.visible = false
 	title_bar.add_theme_stylebox_override("panel", current)
 func open_app():
 	self.show()

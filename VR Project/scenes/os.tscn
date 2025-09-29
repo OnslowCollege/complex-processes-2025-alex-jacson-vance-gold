@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dvegknk5lsye3"]
+[gd_scene load_steps=47 format=3 uid="uid://dvegknk5lsye3"]
 
 [ext_resource type="Script" uid="uid://bq7idm3pojcnx" path="res://scripts/os.gd" id="1_s2aqv"]
 [ext_resource type="Texture2D" uid="uid://d0quntp6dcum7" path="res://assets/textures/border.png" id="2_rxoc4"]
@@ -17,8 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://brsxf1h1n1x4k" path="res://assets/textures/top-bar-example-layout.png" id="15_ldvm6"]
 [ext_resource type="PackedScene" uid="uid://dqyat6o13ocbx" path="res://scenes/window_template.tscn" id="16_joci4"]
 [ext_resource type="Texture2D" uid="uid://besarrb4ncqmi" path="res://assets/textures/scrapbook.png" id="17_bp7kc"]
+[ext_resource type="Texture2D" uid="uid://cbomexpi4toe7" path="res://assets/textures/title-bar_unfocused.png" id="17_mxeek"]
 [ext_resource type="Texture2D" uid="uid://clsgiopcsge26" path="res://assets/textures/calculator.png" id="18_3361g"]
 [ext_resource type="Texture2D" uid="uid://clepitqxri55r" path="res://assets/textures/NotePad.png" id="18_nto4e"]
+[ext_resource type="Texture2D" uid="uid://j4t38v2185eu" path="res://assets/textures/keycaps.png" id="20_o8u01"]
+[ext_resource type="Texture2D" uid="uid://bi2fgxfguola8" path="res://assets/textures/puzzle.png" id="22_ky4p7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hobq"]
 atlas = ExtResource("2_rxoc4")
@@ -112,6 +115,30 @@ region = Rect2(0, 20, 106, 149)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cd0u5"]
 shader = ExtResource("5_8i7xe")
 shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky4p7"]
+shader = ExtResource("5_8i7xe")
+shader_parameter/reveal_amount = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5ig5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5ig5"]
+atlas = ExtResource("22_ky4p7")
+region = Rect2(0, 0, 91, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f41mu"]
+texture = SubResource("AtlasTexture_f5ig5")
+texture_margin_left = 4.0
+texture_margin_top = 1.0
+texture_margin_right = 4.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky4p7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky4p7"]
+atlas = ExtResource("22_ky4p7")
+region = Rect2(0, 20, 91, 90)
 
 [node name="OS" type="Control"]
 layout_mode = 3
@@ -233,6 +260,7 @@ toggle_mode = true
 text = "File"
 
 [node name="Panel" type="Panel" parent="TopPanel/File"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -256,20 +284,22 @@ theme_override_constants/separation = 1
 
 [node name="Open" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Open"
 
 [node name="Duplicate" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Duplicate"
 
 [node name="GetInfo" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Get Info"
 
 [node name="PutBack" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Put Back"
 
 [node name="Break" type="TextureRect" parent="TopPanel/File/Panel/Content"]
@@ -279,14 +309,17 @@ stretch_mode = 1
 
 [node name="Close" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Close"
 
 [node name="CloseAll" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Close All"
 
 [node name="Print" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Print"
 
 [node name="Break2" type="TextureRect" parent="TopPanel/File/Panel/Content"]
@@ -296,6 +329,7 @@ stretch_mode = 1
 
 [node name="Eject" parent="TopPanel/File/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
+disabled = true
 text = "  Eject"
 
 [node name="Edit" type="Button" parent="TopPanel"]
@@ -309,6 +343,7 @@ toggle_mode = true
 text = "Edit"
 
 [node name="Panel" type="Panel" parent="TopPanel/Edit"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -333,7 +368,7 @@ theme_override_constants/separation = 1
 
 [node name="Undo" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Undo"
 
 [node name="Break" type="TextureRect" parent="TopPanel/Edit/Panel/Content"]
@@ -343,27 +378,27 @@ stretch_mode = 1
 
 [node name="Cut" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Cut"
 
 [node name="Copy" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Copy"
 
 [node name="Paste" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Paste"
 
 [node name="Clear" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Clear"
 
 [node name="SelectAll" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Select All"
 
 [node name="Break2" type="TextureRect" parent="TopPanel/Edit/Panel/Content"]
@@ -373,7 +408,7 @@ stretch_mode = 1
 
 [node name="ShowClipboard" parent="TopPanel/Edit/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Show Clipboard"
 
 [node name="View" type="Button" parent="TopPanel"]
@@ -387,6 +422,7 @@ toggle_mode = true
 text = "View"
 
 [node name="Panel" type="Panel" parent="TopPanel/View"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -411,27 +447,27 @@ theme_override_constants/separation = 1
 
 [node name="ByIcon" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  by Icon"
 
 [node name="ByName" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  by Name"
 
 [node name="ByDate" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  by Date"
 
 [node name="BySize" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  by Size"
 
 [node name="ByKind" parent="TopPanel/View/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  by Kind"
 
 [node name="Special" type="Button" parent="TopPanel"]
@@ -445,6 +481,7 @@ toggle_mode = true
 text = "Special"
 
 [node name="Panel" type="Panel" parent="TopPanel/Special"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -465,21 +502,20 @@ theme_override_constants/separation = 1
 
 [node name="CleanUp" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Clean Up"
 
 [node name="EmptyTrash" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Empty Trash"
 
 [node name="EraseDisk" parent="TopPanel/Special/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5254902, 0.5019608, 1)
+disabled = true
 text = "  Erase Disk"
 
 [node name="PixelCurve" type="TextureRect" parent="."]
-visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -491,7 +527,7 @@ mouse_filter = 2
 texture = ExtResource("3_fxvci")
 
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
-z_index = 1
+z_index = 5
 position = Vector2(20, 22)
 sprite_frames = SubResource("SpriteFrames_5hobq")
 centered = false
@@ -558,6 +594,7 @@ offset_top = 40.0
 offset_right = -40.0
 offset_bottom = -281.0
 app = "AlarmClock"
+TITLE_BAR_FOCUSED = ExtResource("17_mxeek")
 
 [node name="Title" parent="AlarmClock/Titlebar" index="1"]
 offset_left = -41.0
@@ -622,6 +659,26 @@ offset_right = 107.0
 offset_bottom = 168.0
 texture = SubResource("AtlasTexture_mxeek")
 
+[node name="KeyCaps" parent="." instance=ExtResource("16_joci4")]
+visible = false
+layout_mode = 1
+offset_left = 96.0
+offset_top = 96.0
+offset_right = -121.0
+offset_bottom = -75.0
+app = "KeyCaps"
+
+[node name="TextureRect" type="TextureRect" parent="KeyCaps/Content" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("20_o8u01")
+
+[node name="Title" parent="KeyCaps/Titlebar" index="1"]
+offset_left = -33.5
+offset_right = 33.5
+text = "Key Caps"
+
 [node name="Control Panel" parent="." instance=ExtResource("8_5hobq")]
 visible = false
 material = SubResource("ShaderMaterial_cd0u5")
@@ -637,6 +694,35 @@ grow_horizontal = 1
 grow_vertical = 1
 app = "ControlPanel"
 
+[node name="Puzzle" parent="." instance=ExtResource("16_joci4")]
+visible = false
+material = SubResource("ShaderMaterial_ky4p7")
+layout_mode = 1
+offset_left = 291.0
+offset_top = 85.0
+offset_right = -147.0
+offset_bottom = -148.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f5ig5")
+app = "Puzzle"
+
+[node name="Titlebar" parent="Puzzle" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxTexture_f41mu")
+
+[node name="Title" parent="Puzzle/Titlebar" index="1"]
+offset_left = -18.0
+offset_right = 32.0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ky4p7")
+text = "Puzzle"
+
+[node name="TextureRect" type="TextureRect" parent="Puzzle"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 92.0
+offset_bottom = 109.0
+texture = SubResource("AtlasTexture_ky4p7")
+
 [connection signal="toggled" from="TopPanel/Logo" to="TopPanel" method="_on_logo_toggled"]
 [connection signal="toggled" from="TopPanel/File" to="TopPanel" method="_on_file_toggled"]
 [connection signal="toggled" from="TopPanel/Edit" to="TopPanel" method="_on_edit_toggled"]
@@ -647,3 +733,5 @@ app = "ControlPanel"
 [editable path="AlarmClock"]
 [editable path="NotePad"]
 [editable path="Calculator"]
+[editable path="KeyCaps"]
+[editable path="Puzzle"]
