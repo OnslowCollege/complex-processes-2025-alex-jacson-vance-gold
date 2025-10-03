@@ -113,5 +113,6 @@ META_ENVIRONMENT_DEPTH_TO_CAMERA_PROJECTION_RIGHT={
 [xr]
 
 openxr/enabled=true
+openxr/reference_space=0
 shaders/enabled=true
 openxr/extensions/meta/color_space/starting_color_space=3
