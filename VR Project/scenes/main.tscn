@@ -219,8 +219,5 @@ stream = ExtResource("21_yc10j")
 unit_size = 1.0
 autoplay = true
 
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1848865, -0.27906752)
-
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
