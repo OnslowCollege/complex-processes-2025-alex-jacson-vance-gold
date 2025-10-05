@@ -26,6 +26,7 @@ func _ready() -> void:
 	letter.text = key_name
 
 func _on_key_pressed(button: Variant) -> void:
+	%keypresssound.play()
 	call_deferred("send_fake_input")
 
 func send_fake_input():

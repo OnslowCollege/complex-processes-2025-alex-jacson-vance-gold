@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=31 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bvgh6dld3mx0h" path="res://scenes/keyboard.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://dk7tmn0tioe7y" path="res://scenes/cup.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3ryxkvnl07uo" path="res://assets/models/WallTrim.blend" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://dbrjdb8excnsv" path="res://assets/Sounds/key_press.mp3" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://byuayh3u41ox0" path="res://scenes/Picture.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://c4xoum6tgvhm7" path="res://scenes/pen.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b480lyr2mkuxs" path="res://scenes/pen_2.tscn" id="17_muem4"]
@@ -49,6 +50,13 @@ size = Vector3(10, 4, 16)
 [sub_resource type="PlaneMesh" id="PlaneMesh_choun"]
 size = Vector2(0.512, 0.342)
 center_offset = Vector3(0.256, 0, 0.171)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y6deb"]
+playback_mode = 2
+random_pitch = 1.25
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("14_pm3ni")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tefeu")
@@ -108,7 +116,7 @@ collision_layer = 65537
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.206087, 0.727778, 9.00837e-09)
 collision_layer = 3
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Table/Macintosh128K"]
+[node name="crtnoise" type="AudioStreamPlayer3D" parent="Table/Macintosh128K"]
 stream = ExtResource("6_jscy8")
 volume_db = -1.0
 unit_size = 0.2
@@ -172,6 +180,12 @@ axis_lock_angular_z = true
 [node name="Keyboard" parent="Mouse&Keyboard" instance=ExtResource("10_choun")]
 transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0.0190302, 0.0384794, 0)
 
+[node name="keypresssound" type="AudioStreamPlayer3D" parent="Mouse&Keyboard/Keyboard"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_y6deb")
+unit_size = 0.5
+max_polyphony = 64
+
 [node name="Cup" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(0.606752, 0, -0.794891, 0, 1, 0, 0.794891, 0, 0.606752, -0.41205, 1.11174, -0.51932)
 
@@ -199,11 +213,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.34589905, 1.7386698,
 [node name="stickynoteyellow" parent="." instance=ExtResource("21_jscy8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.38503808, 1.4584891, -0.9483921)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="lights" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12739062, 3.4710152, 0)
 stream = ExtResource("21_yc10j")
 unit_size = 1.0
 autoplay = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1848865, -0.27906752)
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
