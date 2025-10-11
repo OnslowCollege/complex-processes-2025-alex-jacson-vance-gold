@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx0cah1nioyqk"]
+[gd_scene load_steps=8 format=3 uid="uid://cx0cah1nioyqk"]
 
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="1_4u32n"]
 [ext_resource type="Script" uid="uid://dd2pgfuhc3skm" path="res://scripts/resize_button.gd" id="1_yxnbx"]
@@ -17,7 +17,11 @@ cap_bottom = false
 [sub_resource type="BoxShape3D" id="BoxShape3D_6drqc"]
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxnbx"]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_4u32n"]
+material = SubResource("StandardMaterial3D_yxnbx")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.1
@@ -35,6 +39,13 @@ mesh = SubResource("CylinderMesh_yxnbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
 shape = SubResource("BoxShape3D_6drqc")
+
+[node name="BIG" type="Label3D" parent="Button"]
+transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, 0.035, 0, -0.035, -1.5298985e-09, 0, 0.05021213, 0)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "BIG"
+font_size = 457
 
 [node name="Base" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.120613545, 0)
