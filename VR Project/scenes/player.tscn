@@ -7,10 +7,8 @@
 [node name="Player" type="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 
 [node name="XRController3D_left" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1, -0.232376)
 tracker = &"left_hand"
 
 [node name="LeftPhysicsHand" parent="XRController3D_left" instance=ExtResource("1_g2els")]
@@ -18,7 +16,6 @@ tracker = &"left_hand"
 [node name="FunctionPickup" parent="XRController3D_left" instance=ExtResource("2_dqkch")]
 
 [node name="XRController3D_right" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, -0.232376)
 tracker = &"right_hand"
 
 [node name="RightPhysicsHand" parent="XRController3D_right" instance=ExtResource("2_qhqgy")]

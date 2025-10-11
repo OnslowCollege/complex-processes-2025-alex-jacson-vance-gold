@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=33 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bvgh6dld3mx0h" path="res://scenes/keyboard.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://dk7tmn0tioe7y" path="res://scenes/cup.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://d3ryxkvnl07uo" path="res://assets/models/WallTrim.blend" id="14_a8y0u"]
-[ext_resource type="AudioStream" uid="uid://dbrjdb8excnsv" path="res://assets/Sounds/key_press.mp3" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://byuayh3u41ox0" path="res://scenes/Picture.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://c4xoum6tgvhm7" path="res://scenes/pen.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b480lyr2mkuxs" path="res://scenes/pen_2.tscn" id="17_muem4"]
@@ -23,6 +22,91 @@
 [ext_resource type="PackedScene" uid="uid://b77ekfjsuunyh" path="res://scenes/stickynote_blue.tscn" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cwto5xx2ulcon" path="res://scenes/stickynote_yellow.tscn" id="21_jscy8"]
 [ext_resource type="AudioStream" uid="uid://1symmli2j1gv" path="res://assets/Sounds/humloop.wav" id="21_yc10j"]
+[ext_resource type="PackedScene" uid="uid://cx0cah1nioyqk" path="res://scenes/resize_button.tscn" id="24_y6deb"]
+
+[sub_resource type="Animation" id="Animation_pm3ni"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Macintosh128K:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.206087, 0.727778, 9.00837e-09)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Macintosh128K:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Macintosh128K:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y6deb"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Macintosh128K:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.206087, 0.727778, 9.00837e-09), Vector3(-1.1282526, 0.6772741, 4.9317528e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Macintosh128K:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0.09742425, 1.5707964, -2.0971638e-15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Macintosh128K:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(5, 5, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_og1vs"]
+_data = {
+&"RESET": SubResource("Animation_pm3ni"),
+&"grow": SubResource("Animation_y6deb")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
 shading_mode = 0
@@ -48,15 +132,9 @@ flip_faces = true
 size = Vector3(10, 4, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_choun"]
+flip_faces = true
 size = Vector2(0.512, 0.342)
 center_offset = Vector3(0.256, 0, 0.171)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y6deb"]
-playback_mode = 2
-random_pitch = 1.25
-random_volume_offset_db = 0.5
-streams_count = 1
-stream_0/stream = ExtResource("14_pm3ni")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tefeu")
@@ -66,7 +144,7 @@ script = ExtResource("1_o5qli")
 metadata/_custom_type_script = "uid://ucg2ag04asap"
 
 [node name="Player" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5167336, 0.0925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15864158, 0.0925)
 
 [node name="BoothOrigin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5637202, 0.12747848)
@@ -113,7 +191,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5
 collision_layer = 65537
 
 [node name="Macintosh128K" parent="Table" instance=ExtResource("6_85g3d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.206087, 0.727778, 9.00837e-09)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.206087, 0.727778, 9.00837e-09)
 collision_layer = 3
 
 [node name="crtnoise" type="AudioStreamPlayer3D" parent="Table/Macintosh128K"]
@@ -122,6 +200,15 @@ volume_db = -1.0
 unit_size = 0.2
 max_db = 2.0
 autoplay = true
+
+[node name="SizeChanger" type="AnimationPlayer" parent="Table/Macintosh128K"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_og1vs")
+}
+
+[node name="ResizeButton" parent="Table" instance=ExtResource("24_y6deb")]
+transform = Transform3D(-1.6828889e-08, 0, 0.385, 0, 0.385, 0, -0.385, 0, -1.6828889e-08, 0.21388048, 0.5666611, 0.4416187)
 
 [node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.765387)
@@ -179,12 +266,6 @@ axis_lock_angular_z = true
 
 [node name="Keyboard" parent="Mouse&Keyboard" instance=ExtResource("10_choun")]
 transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0.0190302, 0.0384794, 0)
-
-[node name="keypresssound" type="AudioStreamPlayer3D" parent="Mouse&Keyboard/Keyboard"]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamRandomizer_y6deb")
-unit_size = 0.5
-max_polyphony = 64
 
 [node name="Cup" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(0.606752, 0, -0.794891, 0, 1, 0, 0.794891, 0, 0.606752, -0.41205, 1.11174, -0.51932)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx0cah1nioyqk"]
+
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="1_4u32n"]
+[ext_resource type="Script" uid="uid://dd2pgfuhc3skm" path="res://scripts/resize_button.gd" id="1_yxnbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u32n"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yxnbx"]
+material = SubResource("StandardMaterial3D_4u32n")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+radial_segments = 8
+cap_bottom = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6drqc"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4u32n"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+radial_segments = 8
+
+[node name="ResizeButton" type="Node3D"]
+script = ExtResource("1_yxnbx")
+
+[node name="Button" parent="." instance=ExtResource("1_4u32n")]
+button = NodePath(".")
+displacement = Vector3(0, -0.025, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+mesh = SubResource("CylinderMesh_yxnbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+shape = SubResource("BoxShape3D_6drqc")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.120613545, 0)
+mesh = SubResource("CylinderMesh_4u32n")
+
+[connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
+[connection signal="button_released" from="Button" to="." method="_on_button_button_released"]
