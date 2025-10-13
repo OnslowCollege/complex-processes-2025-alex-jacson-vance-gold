@@ -109,7 +109,7 @@ var initial_hmd_height: float = 0.0  # will store HMD starting Y
 
 func _on_session_visible() -> void:
 	# Get initial HMD height
-	initial_hmd_height = .35 #xr_camera.global_transform.origin.y
+	initial_hmd_height = xr_camera.global_transform.origin.y # .35 for PC testing
 
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	await get_tree().create_timer(0.08).timeout
