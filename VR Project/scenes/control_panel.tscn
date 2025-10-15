@@ -36,14 +36,6 @@ offset_top = 0.0
 offset_right = -197.0
 offset_bottom = -165.0
 
-[node name="Titlebar" parent="." index="0"]
-script = ExtResource("1_mori3")
-
-[node name="Title" parent="Titlebar" index="1"]
-offset_left = -40.5
-offset_right = 40.5
-text = "Control Panel"
-
 [node name="Image" type="Panel" parent="." index="1"]
 use_parent_material = true
 layout_mode = 0
@@ -111,3 +103,11 @@ theme_override_fonts/normal_font = SubResource("FontVariation_bsupa")
 text = "Time"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Titlebar" parent="." index="2"]
+script = ExtResource("1_mori3")
+
+[node name="Title" parent="Titlebar" index="1"]
+offset_left = -40.5
+offset_right = 40.5
+text = "Control Panel"

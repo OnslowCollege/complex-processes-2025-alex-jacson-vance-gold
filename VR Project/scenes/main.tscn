@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=35 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -22,7 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://b77ekfjsuunyh" path="res://scenes/stickynote_blue.tscn" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cwto5xx2ulcon" path="res://scenes/stickynote_yellow.tscn" id="21_jscy8"]
 [ext_resource type="AudioStream" uid="uid://1symmli2j1gv" path="res://assets/Sounds/humloop.wav" id="21_yc10j"]
+[ext_resource type="AudioStream" uid="uid://dngsaxfavlly7" path="res://assets/Sounds/Chime.mp3" id="24_og1vs"]
 [ext_resource type="PackedScene" uid="uid://cx0cah1nioyqk" path="res://scenes/resize_button.tscn" id="24_y6deb"]
+[ext_resource type="Script" uid="uid://eq7umyw3g76w" path="res://scripts/chime_emitter.gd" id="25_og1vs"]
 
 [sub_resource type="Animation" id="Animation_pm3ni"]
 resource_name = "RESET"
@@ -300,6 +302,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12739062, 3.4710152, 0)
 stream = ExtResource("21_yc10j")
 unit_size = 1.0
 autoplay = true
+
+[node name="ChimeEmitter" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3079327, -0.55911076)
+stream = ExtResource("24_og1vs")
+autoplay = true
+script = ExtResource("25_og1vs")
 
 [connection signal="action_pressed" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_clicked"]
 [connection signal="action_released" from="Mouse&Keyboard/MousePad/Mouse" to="." method="_on_mouse_released"]
