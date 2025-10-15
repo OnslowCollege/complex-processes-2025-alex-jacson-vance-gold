@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bc8so5rjhn0hh"
+uid="uid://cip3n57kfvl4y"
 path="res://.godot/imported/fnaf_fan.mp3-99b345ca98aeebdbd9a3a87584f47d4d.mp3str"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/fnaf_fan.mp3-99b345ca98aeebdbd9a3a87584f47d4d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
