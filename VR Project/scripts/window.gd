@@ -90,3 +90,10 @@ func _process(delta: float) -> void:
 	if app == "AlarmClock":
 		var current_date_dict = Time.get_datetime_dict_from_system()
 		title.text = str(current_date_dict.hour) + " : " + str(current_date_dict.minute) + " : " + str(current_date_dict.second)
+
+
+func _on_scrollbar_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		var new_volume : float = ($Image/Scrollbar.value / 10.0)
+		Globals.volume = new_volume
+		Globals.signal_chime()

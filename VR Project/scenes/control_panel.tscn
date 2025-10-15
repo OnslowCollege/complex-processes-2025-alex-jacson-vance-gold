@@ -111,3 +111,5 @@ script = ExtResource("1_mori3")
 offset_left = -40.5
 offset_right = 40.5
 text = "Control Panel"
+
+[connection signal="gui_input" from="Image/Scrollbar" to="." method="_on_scrollbar_gui_input"]
