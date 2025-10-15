@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://4wbby5vfnlxu"]
+[gd_scene load_steps=36 format=3 uid="uid://4wbby5vfnlxu"]
 
 [ext_resource type="Script" uid="uid://ucg2ag04asap" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuw6n24u6n8fi" path="res://scripts/main.gd" id="1_tefeu"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://duxmxphineg6y" path="res://assets/Sounds/crt.mp3" id="6_jscy8"]
 [ext_resource type="Texture2D" uid="uid://p7kflmn20x4s" path="res://assets/textures/floorboards.jpg" id="7_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bige7i84eb7ne" path="res://scenes/floppy_disk.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://bc8so5rjhn0hh" path="res://assets/Sounds/fnaf_fan.mp3" id="8_2wyq8"]
 [ext_resource type="MeshLibrary" uid="uid://bwhlr0aglh4kt" path="res://assets/gridmaps/roof-yellow.tres" id="8_tipki"]
 [ext_resource type="MeshLibrary" uid="uid://dbsdufn4gyeu6" path="res://assets/gridmaps/cubicals.tres" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://jlcmmtgrewaf" path="res://scenes/mouse.tscn" id="9_choun"]
@@ -209,9 +210,19 @@ transform = Transform3D(-0.25766516, 0, 0.28606576, 0, 0.38499996, 0, -0.2860657
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.206087, 0.72777796, 9.008367e-09)
 stream = ExtResource("6_jscy8")
 volume_db = -1.0
-unit_size = 0.2
+unit_size = 0.4
 max_db = 2.0
 autoplay = true
+max_distance = 1.5
+
+[node name="fannoise" type="AudioStreamPlayer3D" parent="Table"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.206087, 0.72777796, 9.008367e-09)
+stream = ExtResource("8_2wyq8")
+volume_db = -1.0
+unit_size = 0.4
+max_db = 2.0
+autoplay = true
+max_distance = 2.0
 
 [node name="FloppyDisk" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363613, 1.12529, -0.765387)
