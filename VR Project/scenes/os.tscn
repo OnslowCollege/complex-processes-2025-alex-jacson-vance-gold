@@ -242,6 +242,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 text = "  About the finder..."
 connected_app = "About"
+has_functionality = true
 
 [node name="Break" type="TextureRect" parent="TopPanel/Logo/Panel/Content"]
 layout_mode = 2
@@ -257,11 +258,13 @@ connected_app = "Scrapbook"
 layout_mode = 2
 text = "  Alarm Clock"
 connected_app = "AlarmClock"
+has_functionality = true
 
 [node name="NotePad" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
 text = "  Note Pad"
 connected_app = "NotePad"
+has_functionality = true
 
 [node name="Calculator" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
@@ -277,6 +280,7 @@ connected_app = "KeyCaps"
 layout_mode = 2
 text = "  Control Panel"
 connected_app = "ControlPanel"
+has_functionality = true
 
 [node name="Puzzle" parent="TopPanel/Logo/Panel/Content" instance=ExtResource("11_cd0u5")]
 layout_mode = 2
