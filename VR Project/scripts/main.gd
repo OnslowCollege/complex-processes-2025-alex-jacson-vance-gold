@@ -34,7 +34,7 @@ func _on_mouse_released(pickable: Variant) -> void:
 	simulate_mouse_release(cursor.position)
 
 func _process(delta: float) -> void:
-	var mouse3Dpos = mouse.position
+	var mouse3Dpos = mouse.position * 2 
 	var mouse2Dpos = Vector2(mouse3Dpos.x, mouse3Dpos.z)
 	cursor.position = mouse2Dpos * 1024
 
@@ -109,7 +109,8 @@ var initial_hmd_height: float = 0.0  # will store HMD starting Y
 
 func _on_session_visible() -> void:
 	# Get initial HMD height
-	initial_hmd_height = xr_camera.global_transform.origin.y # .35 for PC testing
+	initial_hmd_height = xr_camera.global_transform.origin.y if xr_camera and xr_camera.global_transform else 0.35
+
 
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	await get_tree().create_timer(0.08).timeout

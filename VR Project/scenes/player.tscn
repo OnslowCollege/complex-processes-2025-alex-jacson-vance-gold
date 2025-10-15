@@ -14,6 +14,7 @@ tracker = &"left_hand"
 [node name="LeftPhysicsHand" parent="XRController3D_left" instance=ExtResource("1_g2els")]
 
 [node name="FunctionPickup" parent="XRController3D_left" instance=ExtResource("2_dqkch")]
+grab_distance = 0.1
 
 [node name="XRController3D_right" type="XRController3D" parent="."]
 tracker = &"right_hand"
@@ -21,3 +22,4 @@ tracker = &"right_hand"
 [node name="RightPhysicsHand" parent="XRController3D_right" instance=ExtResource("2_qhqgy")]
 
 [node name="FunctionPickup" parent="XRController3D_right" instance=ExtResource("2_dqkch")]
+grab_distance = 0.1

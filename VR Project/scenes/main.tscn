@@ -146,7 +146,7 @@ script = ExtResource("1_o5qli")
 metadata/_custom_type_script = "uid://ucg2ag04asap"
 
 [node name="Player" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4649636, 0.0925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27773488, 0.0925)
 
 [node name="BoothOrigin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5637202, 0.12747848)
@@ -254,7 +254,7 @@ metadata/_editor_floor_ = Vector3(0, -2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0198061, 1, -0.33746)
 
 [node name="MousePad" type="MeshInstance3D" parent="Mouse&Keyboard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297759, 0.00386572, -0.201084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3891607, 0.0038657188, -0.03748551)
 layers = 3
 mesh = SubResource("PlaneMesh_choun")
 skeleton = NodePath("Mouse")
