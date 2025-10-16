@@ -169,5 +169,5 @@ func reset_player_to_booth() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		subviewport.push_input(event)
-	if event.is_action_pressed("reset"):
-		reset_player_to_booth()
+#	if event.is_action_pressed("reset"):
+#		reset_player_to_booth()
