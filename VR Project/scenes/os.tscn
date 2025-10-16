@@ -639,12 +639,11 @@ offset_left = -41.0
 offset_right = 61.0
 
 [node name="NotePad" parent="." instance=ExtResource("16_joci4")]
-visible = false
 layout_mode = 1
-offset_left = 130.62756
-offset_top = 88.0
-offset_right = -158.0
-offset_bottom = -7.0
+offset_left = 194.62756
+offset_top = 56.0
+offset_right = -94.0
+offset_bottom = -39.0
 app = "NotePad"
 
 [node name="Content" parent="NotePad" index="0"]

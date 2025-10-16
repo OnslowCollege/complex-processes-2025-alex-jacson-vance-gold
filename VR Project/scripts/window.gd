@@ -94,6 +94,6 @@ func _process(delta: float) -> void:
 
 func _on_scrollbar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		var new_volume : float = ($Image/Scrollbar.value / 10.0)
+		var new_volume : float = ($Image/Scrollbar.value / 100.0)
 		Globals.volume = new_volume
 		Globals.signal_chime()

@@ -28,10 +28,13 @@ func _ready() -> void:
 
 # --- Mouse interaction ---
 func _on_mouse_clicked(pickable: Variant) -> void:
+	$"Mouse&Keyboard/MousePad/Mouse/ClickDown".play()
 	simulate_mouse_press(cursor.position)
 
 func _on_mouse_released(pickable: Variant) -> void:
+	$"Mouse&Keyboard/MousePad/Mouse/ClickUp".play()
 	simulate_mouse_release(cursor.position)
+	
 
 func _process(delta: float) -> void:
 	var mouse3Dpos = mouse.position * 2 
