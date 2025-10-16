@@ -22,6 +22,14 @@ const key_map = {
 	"Spacebar": KEY_SPACE, "Enter": KEY_ENTER, "Roptions": KEY_ALT
 }
 
+# --- Optional: symbol map for shifted keys ---
+const shifted_symbols = {
+	"1": "!", "2": "@", "3": "#", "4": "$", "5": "%",
+	"6": "^", "7": "&", "8": "*", "9": "(", "0": ")",
+	"-": "_", "=": "+", "[": "{", "]": "}", ";": ":",
+	"'": "\"", ",": "<", ".": ">", "/": "?", "`": "~", "\\": "|"
+}
+
 func _ready() -> void:
 	letter.text = key_name
 
@@ -32,10 +40,44 @@ func _on_key_pressed(button: Variant) -> void:
 func send_fake_input():
 	var ev := InputEventKey.new()
 	ev.keycode = key_map.get(key_name, KEY_UNKNOWN)
-	ev.unicode = int(key_name.unicode_at(0)) 
+
+	# --- Handle modifiers first ---
+	match key_name:
+		"Shift", "RShift":
+			ev.shift_pressed = true
+			ev.unicode = 0
+		"Options", "Roptions":
+			ev.alt_pressed = true
+			ev.unicode = 0
+		"Mac":
+			ev.meta_pressed = true
+			ev.unicode = 0
+		"Capslock":
+			ev.unicode = 0
+		_:
+			ev.shift_pressed = Input.is_key_pressed(KEY_SHIFT)
+			ev.alt_pressed = Input.is_key_pressed(KEY_ALT)
+			ev.meta_pressed = Input.is_key_pressed(KEY_META)
+
+			# --- Assign unicode based on modifiers ---
+			if key_name == "Spacebar":
+				ev.unicode = 32  # space
+			elif key_name.length() == 1:
+				var char = key_name
+				# Apply Shift if pressed
+				if ev.shift_pressed:
+					if shifted_symbols.has(char):
+						char = shifted_symbols[char]
+					else:
+						char = char.to_upper()
+				ev.unicode = int(char.unicode_at(0))
+			else:
+				ev.unicode = 0  # non-character keys
+
 	ev.pressed = true
 	Input.parse_input_event(ev)
 
+	# --- Key release ---
 	var ev_up := ev.duplicate()
 	ev_up.pressed = false
 	Input.parse_input_event(ev_up)
